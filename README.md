@@ -315,7 +315,7 @@ scalars added by `CoverageLoggingCallback`
 ## 16. Folder structure
 
 ```
-bead_curve_rl/
+bead-tracer/
 ├── env.py            # BeadEnv — UNMODIFIED, exactly as provided
 ├── config.py          # every PPO/model/path/eval setting, in one place
 ├── train.py            # training entry point + env/model factories + callbacks
