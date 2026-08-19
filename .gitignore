@@ -6,15 +6,13 @@ venv/
 
 # Generated training/evaluation artifacts (folders are tracked via .gitkeep,
 # their contents are not -- these are reproducible outputs, not source).
-models/*.zip
-checkpoints/*.zip
-logs/*
-!logs/.gitkeep
+
 tensorboard/*
 !tensorboard/.gitkeep
-evaluations/*.json
-results/*.png
-results/eval_*/
+
 
 # OS
 .DS_Store
+
+# Local tooling state (not project content)
+.claude/
