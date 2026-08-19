@@ -834,7 +834,16 @@ class BeadEnv(gym.Env):
         return frame
 
     def close(self):
-        cv2.destroyAllWindows()
+        # Only meaningful if render() actually opened a window (self.sim is
+        # set there). Guarded because opencv-python-headless -- the OpenCV
+        # build this project's requirements.txt installs for training/eval,
+        # which have no GUI use for render() -- has no highgui support and
+        # raises cv2.error on destroyAllWindows() even when no window exists.
+        if self.sim is not None:
+            try:
+                cv2.destroyAllWindows()
+            except cv2.error:
+                pass
 
 
 # ===============================================================================
