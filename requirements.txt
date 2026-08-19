@@ -1,0 +1,16 @@
+# Core RL stack
+gymnasium>=0.29,<1.2
+stable-baselines3>=2.3.0
+torch>=2.0
+
+# Environment dependencies (image processing / contour extraction)
+opencv-python-headless>=4.8
+numpy>=1.24
+
+# Logging / evaluation / reporting
+tensorboard>=2.13
+matplotlib>=3.7
+
+# Nice-to-haves used by SB3 (progress bars for model.learn(progress_bar=True))
+tqdm>=4.66
+rich>=13.0
