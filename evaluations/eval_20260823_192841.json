@@ -1,0 +1,320 @@
+{
+  "summary": {
+    "model_path": "models/bead_ppo_final.zip",
+    "image_path": "target_images/path1.png",
+    "n_points": 20,
+    "deterministic": true,
+    "total_contour_pixels": 4938,
+    "mean_coverage_pct": 82.02511138112595,
+    "std_coverage_pct": 15.258077222556953,
+    "min_coverage_pct": 36.73552045362495,
+    "max_coverage_pct": 93.51964358039693,
+    "mean_reward": 381.1305419653439,
+    "std_reward": 79.16295467371313,
+    "mean_steps": 1715.9,
+    "completion_rate": 0.0,
+    "n_completed": 0
+  },
+  "episodes": [
+    {
+      "start_point": [
+        475,
+        71
+      ],
+      "coverage": 0.8884163628999595,
+      "coverage_pct": 88.84163628999595,
+      "covered_pixels": 4387,
+      "total_contour_pixels": 4938,
+      "reward": 424.04005003202315,
+      "steps": 1534,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        529,
+        99
+      ],
+      "coverage": 0.8748481166464156,
+      "coverage_pct": 87.48481166464155,
+      "covered_pixels": 4320,
+      "total_contour_pixels": 4938,
+      "reward": 403.3351561207512,
+      "steps": 1633,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        539,
+        140
+      ],
+      "coverage": 0.8888213851761847,
+      "coverage_pct": 88.88213851761847,
+      "covered_pixels": 4389,
+      "total_contour_pixels": 4938,
+      "reward": 404.51511035278116,
+      "steps": 1459,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        304,
+        182
+      ],
+      "coverage": 0.9044147428108545,
+      "coverage_pct": 90.44147428108545,
+      "covered_pixels": 4466,
+      "total_contour_pixels": 4938,
+      "reward": 423.1503928724027,
+      "steps": 1614,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        282,
+        197
+      ],
+      "coverage": 0.7792628594572701,
+      "coverage_pct": 77.92628594572702,
+      "covered_pixels": 3848,
+      "total_contour_pixels": 4938,
+      "reward": 361.6593314133254,
+      "steps": 1264,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        227,
+        224
+      ],
+      "coverage": 0.8134872417982989,
+      "coverage_pct": 81.34872417982989,
+      "covered_pixels": 4017,
+      "total_contour_pixels": 4938,
+      "reward": 375.5711320823694,
+      "steps": 1338,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        602,
+        236
+      ],
+      "coverage": 0.8612798703928716,
+      "coverage_pct": 86.12798703928716,
+      "covered_pixels": 4253,
+      "total_contour_pixels": 4938,
+      "reward": 395.6500326433918,
+      "steps": 1247,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        595,
+        283
+      ],
+      "coverage": 0.8843661401377075,
+      "coverage_pct": 88.43661401377075,
+      "covered_pixels": 4367,
+      "total_contour_pixels": 4938,
+      "reward": 411.20008095804747,
+      "steps": 1558,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        576,
+        334
+      ],
+      "coverage": 0.9351964358039693,
+      "coverage_pct": 93.51964358039693,
+      "covered_pixels": 4618,
+      "total_contour_pixels": 4938,
+      "reward": 429.7341183940903,
+      "steps": 2307,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        124,
+        367
+      ],
+      "coverage": 0.855609558525719,
+      "coverage_pct": 85.5609558525719,
+      "covered_pixels": 4225,
+      "total_contour_pixels": 4938,
+      "reward": 399.1555360371056,
+      "steps": 1631,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        672,
+        396
+      ],
+      "coverage": 0.9046172539489672,
+      "coverage_pct": 90.46172539489672,
+      "covered_pixels": 4467,
+      "total_contour_pixels": 4938,
+      "reward": 417.64147551533404,
+      "steps": 1655,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        706,
+        446
+      ],
+      "coverage": 0.9325637910085055,
+      "coverage_pct": 93.25637910085055,
+      "covered_pixels": 4605,
+      "total_contour_pixels": 4938,
+      "reward": 452.74581506970856,
+      "steps": 2237,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        208,
+        488
+      ],
+      "coverage": 0.860064803564196,
+      "coverage_pct": 86.0064803564196,
+      "covered_pixels": 4247,
+      "total_contour_pixels": 4938,
+      "reward": 403.9786115173652,
+      "steps": 2460,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        662,
+        528
+      ],
+      "coverage": 0.8416362899959497,
+      "coverage_pct": 84.16362899959498,
+      "covered_pixels": 4156,
+      "total_contour_pixels": 4938,
+      "reward": 391.22660015381837,
+      "steps": 1336,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        482,
+        574
+      ],
+      "coverage": 0.8345484001620089,
+      "coverage_pct": 83.45484001620089,
+      "covered_pixels": 4121,
+      "total_contour_pixels": 4938,
+      "reward": 383.7008548533276,
+      "steps": 1615,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        536,
+        592
+      ],
+      "coverage": 0.3673552045362495,
+      "coverage_pct": 36.73552045362495,
+      "covered_pixels": 1814,
+      "total_contour_pixels": 4938,
+      "reward": 140.72406048100964,
+      "steps": 1728,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        604,
+        608
+      ],
+      "coverage": 0.383151073309032,
+      "coverage_pct": 38.315107330903196,
+      "covered_pixels": 1892,
+      "total_contour_pixels": 4938,
+      "reward": 162.00973584149986,
+      "steps": 1466,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        426,
+        661
+      ],
+      "coverage": 0.8665451599837991,
+      "coverage_pct": 86.6545159983799,
+      "covered_pixels": 4279,
+      "total_contour_pixels": 4938,
+      "reward": 400.1788399285699,
+      "steps": 1236,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        351,
+        681
+      ],
+      "coverage": 0.8681652490886999,
+      "coverage_pct": 86.81652490886998,
+      "covered_pixels": 4287,
+      "total_contour_pixels": 4938,
+      "reward": 422.0372747864159,
+      "steps": 2500,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    },
+    {
+      "start_point": [
+        268,
+        698
+      ],
+      "coverage": 0.8606723369785338,
+      "coverage_pct": 86.06723369785338,
+      "covered_pixels": 4250,
+      "total_contour_pixels": 4938,
+      "reward": 420.3566302535425,
+      "steps": 2500,
+      "task_complete": false,
+      "terminated": false,
+      "truncated": true
+    }
+  ]
+}

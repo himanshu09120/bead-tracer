@@ -59,7 +59,7 @@ SEED = 42
 
 ENV_KWARGS = dict(
     cover_radius_px=8.0,
-    completion_frac=0.80,
+    completion_frac=0.95,
     max_steps=2500,
     stag_limit=350,
     revisit_cell_px=16.0,

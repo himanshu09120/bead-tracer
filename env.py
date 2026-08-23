@@ -153,7 +153,7 @@ class BeadEnv(gym.Env):
         # footprints overlapping.  Raise it for a more forgiving task, lower
         # it to demand tighter tracing.
         cover_radius_px: float = 8.0,
-        completion_frac: float = 0.80,
+        completion_frac: float = 0.95,
         max_steps: int = 2500,
         stag_limit: int = 350,
         # -- anti-oscillation configuration (v5) -------------------------------
