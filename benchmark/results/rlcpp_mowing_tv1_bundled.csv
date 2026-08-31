@@ -1,0 +1,7 @@
+method,episode_index,seed,start_point,coverage_pct,success,path_length,steps,redundancy_rate,reward,extra_collisions,extra_path_length_env_reported_m,extra_source_csv
+rlcpp_mowing_tv1_bundled,0,,,99.00107991360692,True,577.7643562316902,6212,0.2792981326464906,,18,577.7643562316902,eval_metrics_1.csv
+rlcpp_mowing_tv1_bundled,1,,,99.00254969545304,True,586.4406985980257,6262,0.2662088789524114,,29,586.4406985980257,eval_metrics_2.csv
+rlcpp_mowing_tv1_bundled,2,,,99.01033822879984,True,610.2795836484411,6401,0.28073738478362753,,9,610.2795836484411,eval_metrics_3.csv
+rlcpp_mowing_tv1_bundled,3,,,99.0060841934133,True,708.4780060219757,7464,0.38210075026795287,,8,708.4780060219757,eval_metrics_4.csv
+rlcpp_mowing_tv1_bundled,4,,,99.0020646937371,True,370.7474001735457,4144,0.3250482625482626,,0,370.7474001735457,eval_metrics_5.csv
+rlcpp_mowing_tv1_bundled,5,,,99.00315266293434,True,1647.3805634772816,19316,0.45382066680472144,,260,1647.3805634772816,eval_metrics_6.csv

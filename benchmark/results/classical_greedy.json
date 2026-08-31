@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "method": "classical_greedy",
+    "paper": "Classical greedy nearest-uncovered-target pursuit (standard reactive baseline for point/curve coverage tasks)",
+    "code_source": "implemented in this repo, no external code",
+    "environment": "BeadEnv (this project's own, unmodified environment)",
+    "image": "target_images/path1.png",
+    "n_points": 20,
+    "seeds": "deterministic eval_start_points(), no RNG seed needed (no training, no stochastic policy)",
+    "training_required": false,
+    "wall_clock_seconds": 7.23863959312439
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 49.50789793438639,
+    "std_coverage_pct": 4.89044524374241,
+    "min_coverage_pct": 41.21101660591332,
+    "max_coverage_pct": 57.614418793033614,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 15292.140626801789,
+    "std_path_length": 1029.6661458431033,
+    "mean_steps": 2490.25,
+    "std_steps": 42.49926469952157,
+    "mean_redundancy_rate": 0.894582082429501,
+    "std_redundancy_rate": 0.00967803022028327
+  },
+  "episodes": [
+    {
+      "method": "classical_greedy",
+      "episode_index": 0,
+      "seed": null,
+      "start_point": [
+        475,
+        71
+      ],
+      "coverage_pct": 50.7492912110166,
+      "success": false,
+      "path_length": 14641.53268588947,
+      "steps": 2500,
+      "redundancy_rate": 0.8916,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2506,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 1,
+      "seed": null,
+      "start_point": [
+        529,
+        99
+      ],
+      "coverage_pct": 46.172539489671934,
+      "success": false,
+      "path_length": 15497.679815863903,
+      "steps": 2500,
+      "redundancy_rate": 0.9008,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2280,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 2,
+      "seed": null,
+      "start_point": [
+        539,
+        140
+      ],
+      "coverage_pct": 42.851356824625356,
+      "success": false,
+      "path_length": 13442.499827115193,
+      "steps": 2305,
+      "redundancy_rate": 0.8928416485900217,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2116,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 3,
+      "seed": null,
+      "start_point": [
+        304,
+        182
+      ],
+      "coverage_pct": 57.06763872012961,
+      "success": false,
+      "path_length": 16296.0642127316,
+      "steps": 2500,
+      "redundancy_rate": 0.8815999999999999,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2818,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 4,
+      "seed": null,
+      "start_point": [
+        282,
+        197
+      ],
+      "coverage_pct": 51.57958687727825,
+      "success": false,
+      "path_length": 14449.004262318818,
+      "steps": 2500,
+      "redundancy_rate": 0.8908,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2547,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 5,
+      "seed": null,
+      "start_point": [
+        227,
+        224
+      ],
+      "coverage_pct": 41.21101660591332,
+      "success": false,
+      "path_length": 14457.346837520441,
+      "steps": 2500,
+      "redundancy_rate": 0.9028,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2035,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 6,
+      "seed": null,
+      "start_point": [
+        602,
+        236
+      ],
+      "coverage_pct": 50.607533414337794,
+      "success": false,
+      "path_length": 16692.17447550545,
+      "steps": 2500,
+      "redundancy_rate": 0.8928,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2499,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 7,
+      "seed": null,
+      "start_point": [
+        595,
+        283
+      ],
+      "coverage_pct": 56.176589712434186,
+      "success": false,
+      "path_length": 15576.51803611069,
+      "steps": 2500,
+      "redundancy_rate": 0.8876,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2774,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 8,
+      "seed": null,
+      "start_point": [
+        576,
+        334
+      ],
+      "coverage_pct": 41.636289995949774,
+      "success": false,
+      "path_length": 15610.473181239502,
+      "steps": 2500,
+      "redundancy_rate": 0.9108,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2056,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 9,
+      "seed": null,
+      "start_point": [
+        124,
+        367
+      ],
+      "coverage_pct": 46.67881733495342,
+      "success": false,
+      "path_length": 13943.91936893002,
+      "steps": 2500,
+      "redundancy_rate": 0.9064,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2305,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 10,
+      "seed": null,
+      "start_point": [
+        672,
+        396
+      ],
+      "coverage_pct": 51.70109356014581,
+      "success": false,
+      "path_length": 17130.940921883783,
+      "steps": 2500,
+      "redundancy_rate": 0.892,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2553,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 11,
+      "seed": null,
+      "start_point": [
+        706,
+        446
+      ],
+      "coverage_pct": 53.523693803159176,
+      "success": false,
+      "path_length": 14543.480059089823,
+      "steps": 2500,
+      "redundancy_rate": 0.892,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2643,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 12,
+      "seed": null,
+      "start_point": [
+        208,
+        488
+      ],
+      "coverage_pct": 49.55447549615229,
+      "success": false,
+      "path_length": 14460.490336043364,
+      "steps": 2500,
+      "redundancy_rate": 0.8904,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2447,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 13,
+      "seed": null,
+      "start_point": [
+        662,
+        528
+      ],
+      "coverage_pct": 45.82827055488052,
+      "success": false,
+      "path_length": 16505.319987421128,
+      "steps": 2500,
+      "redundancy_rate": 0.9044,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2263,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 14,
+      "seed": null,
+      "start_point": [
+        482,
+        574
+      ],
+      "coverage_pct": 57.614418793033614,
+      "success": false,
+      "path_length": 16396.001224214586,
+      "steps": 2500,
+      "redundancy_rate": 0.878,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2845,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 15,
+      "seed": null,
+      "start_point": [
+        536,
+        592
+      ],
+      "coverage_pct": 55.407047387606326,
+      "success": false,
+      "path_length": 14830.076964796297,
+      "steps": 2500,
+      "redundancy_rate": 0.8776,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2736,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 16,
+      "seed": null,
+      "start_point": [
+        604,
+        608
+      ],
+      "coverage_pct": 47.77237748076144,
+      "success": false,
+      "path_length": 14194.803595247999,
+      "steps": 2500,
+      "redundancy_rate": 0.902,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2359,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 17,
+      "seed": null,
+      "start_point": [
+        426,
+        661
+      ],
+      "coverage_pct": 46.41555285540705,
+      "success": false,
+      "path_length": 16770.04485803107,
+      "steps": 2500,
+      "redundancy_rate": 0.908,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2292,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 18,
+      "seed": null,
+      "start_point": [
+        351,
+        681
+      ],
+      "coverage_pct": 52.470635884973674,
+      "success": false,
+      "path_length": 15213.589941461407,
+      "steps": 2500,
+      "redundancy_rate": 0.8848,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2591,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "classical_greedy",
+      "episode_index": 19,
+      "seed": null,
+      "start_point": [
+        268,
+        698
+      ],
+      "coverage_pct": 45.13973268529769,
+      "success": false,
+      "path_length": 15190.85194462126,
+      "steps": 2500,
+      "redundancy_rate": 0.9044,
+      "reward": null,
+      "extra": {
+        "covered_pixels": 2229,
+        "total_contour_pixels": 4938,
+        "terminated": false,
+        "truncated": true
+      }
+    }
+  ]
+}

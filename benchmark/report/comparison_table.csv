@@ -1,0 +1,11 @@
+method,environment,mean_coverage_pct,std_coverage_pct,success_rate,mean_steps,mean_path_length,mean_redundancy_rate,n_episodes
+classical_greedy,"BeadEnv (this project's own, unmodified environment)",49.50789793438639,4.89044524374241,0.0,2490.25,15292.140626801789,0.894582082429501,20
+classical_raster,"BeadEnv (this project's own, unmodified environment)",10.325030376670718,9.577439384483805,0.0,1179.5,7743.156675916497,0.956621683113257,20
+devo_ppo,"32x32 procedurally-generated rooms-and-corridors grid, 9x9 local crop observation",2.768920791611104,1.0850331739887336,0.0,1800.0,405.1,0.9983055555555556,20
+ppo_ours,"BeadEnv (this project's own, unmodified environment)",82.02511138112597,15.25807722255695,0.0,1715.9,3057.1646044205586,0.4887371577133176,20
+redqn_baseline_dqn,"16x16 discrete grid, reimplemented per paper's stated grid size / action space / baseline reward terms",3.6680915560941942,3.200042467131248,0.0,8.0,7.0,0.2849013024013024,20
+rlcpp_mowing_tv1_bundled,"MowerEnv (official rl-cpp code) -- lawn-mowing task, continuous throttle+steering action space, multi-scale CNN map observation + lidar",99.00421156465744,0.003144893403959556,1.0,8299.833333333334,750.1817680251601,0.33120234600057774,6
+rlcpp_mowing_tv1_local,"MowerEnv (official rl-cpp code) -- lawn-mowing task, continuous throttle+steering action space, multi-scale CNN map observation + lidar",90.84380636503649,14.08935524373048,0.6,2934.0666666666666,271.9056028490464,0.26225565509416887,15
+sensors_a2c,"9x9 discrete grid, reimplemented per paper's methodology description (see grid_env.py docstring for exact assumptions)",33.175314491145095,20.728277145068805,0.0,500.0,425.0,0.9535,20
+sensors_ppo,"9x9 discrete grid, reimplemented per paper's methodology description (see grid_env.py docstring for exact assumptions)",20.56064830657248,19.285700683733396,0.0,500.0,500.0,0.9718,20
+theile_dqn,"16x16 grid, 3-channel map + coverage grid + position + movement budget",14.158575373083323,27.648307105174172,0.0,16.3,8.1,0.848504712997521,20

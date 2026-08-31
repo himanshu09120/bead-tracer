@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "method": "sensors_a2c",
+    "paper": "Garrido-Castaneda, Vasquez & Antonio-Cruz (2025), 'Coverage Path Planning Using Actor-Critic Deep Reinforcement Learning', Sensors 25(5):1592, DOI 10.3390/s25051592",
+    "code_source": "REIMPLEMENTATION by us -- no official code released ('Data are available on request', no GitHub link found)",
+    "environment": "9x9 discrete grid, reimplemented per paper's methodology description (see grid_env.py docstring for exact assumptions)",
+    "assumptions": [
+      "obstacle density/layout generation not specified by the paper; we use a fixed-density random layout per evaluation seed",
+      "training timestep budget not specified by the paper; we used 300,000 timesteps",
+      "network architecture not specified beyond SB3 usage; we used SB3's default MlpPolicy"
+    ],
+    "model_path": "E:\\bead tracer\\benchmark\\baseline_sensors_actorcritic\\models\\a2c_grid.zip",
+    "training_wall_clock_seconds": 1016.9546985626221,
+    "training_timesteps": 300000,
+    "device": "cuda",
+    "sb3_version": "2.9.0",
+    "seed": 42,
+    "eval_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ],
+    "eval_start_point": [
+      0,
+      0
+    ]
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 33.175314491145095,
+    "std_coverage_pct": 20.728277145068805,
+    "min_coverage_pct": 1.2987012987012987,
+    "max_coverage_pct": 73.33333333333333,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 425.0,
+    "std_path_length": 178.53571071357126,
+    "mean_steps": 500.0,
+    "std_steps": 0.0,
+    "mean_redundancy_rate": 0.9535,
+    "std_redundancy_rate": 0.03035045304439457,
+    "mean_reward": -793.6575000000015,
+    "std_reward": 1788.0217956106576
+  },
+  "episodes": [
+    {
+      "method": "sensors_a2c",
+      "episode_index": 0,
+      "seed": 1000,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 60.273972602739725,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.914,
+      "reward": -41.1300000000003,
+      "extra": {
+        "covered_cells": 44,
+        "total_free_cells": 73,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 1,
+      "seed": 1001,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 1.36986301369863,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 500,
+      "redundancy_rate": 1.0,
+      "reward": -5050.000000000008,
+      "extra": {
+        "covered_cells": 1,
+        "total_free_cells": 73,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 2,
+      "seed": 1002,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 52.77777777777778,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.926,
+      "reward": -41.67000000000032,
+      "extra": {
+        "covered_cells": 38,
+        "total_free_cells": 72,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 3,
+      "seed": 1003,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 26.666666666666668,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.962,
+      "reward": -43.29000000000038,
+      "extra": {
+        "covered_cells": 20,
+        "total_free_cells": 75,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 4,
+      "seed": 1004,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 58.9041095890411,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.916,
+      "reward": -41.220000000000304,
+      "extra": {
+        "covered_cells": 43,
+        "total_free_cells": 73,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 5,
+      "seed": 1005,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 42.465753424657535,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.94,
+      "reward": -42.300000000000345,
+      "extra": {
+        "covered_cells": 31,
+        "total_free_cells": 73,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 6,
+      "seed": 1006,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 10.81081081081081,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.986,
+      "reward": -44.370000000000424,
+      "extra": {
+        "covered_cells": 8,
+        "total_free_cells": 74,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 7,
+      "seed": 1007,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 1.2987012987012987,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 500,
+      "redundancy_rate": 1.0,
+      "reward": -5050.000000000008,
+      "extra": {
+        "covered_cells": 1,
+        "total_free_cells": 77,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 8,
+      "seed": 1008,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 48.57142857142857,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.9339999999999999,
+      "reward": -42.030000000000335,
+      "extra": {
+        "covered_cells": 34,
+        "total_free_cells": 70,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 9,
+      "seed": 1009,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 18.571428571428573,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.976,
+      "reward": -43.92000000000041,
+      "extra": {
+        "covered_cells": 13,
+        "total_free_cells": 70,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 10,
+      "seed": 1010,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 10.81081081081081,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.986,
+      "reward": -44.370000000000424,
+      "extra": {
+        "covered_cells": 8,
+        "total_free_cells": 74,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 11,
+      "seed": 1011,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 38.888888888888886,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.946,
+      "reward": -42.570000000000356,
+      "extra": {
+        "covered_cells": 28,
+        "total_free_cells": 72,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 12,
+      "seed": 1012,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 24.324324324324323,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.966,
+      "reward": -43.47000000000039,
+      "extra": {
+        "covered_cells": 18,
+        "total_free_cells": 74,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 13,
+      "seed": 1013,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 1.36986301369863,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 500,
+      "redundancy_rate": 1.0,
+      "reward": -5050.000000000008,
+      "extra": {
+        "covered_cells": 1,
+        "total_free_cells": 73,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 14,
+      "seed": 1014,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 25.974025974025974,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.962,
+      "reward": -43.29000000000038,
+      "extra": {
+        "covered_cells": 20,
+        "total_free_cells": 77,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 15,
+      "seed": 1015,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 45.333333333333336,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.9339999999999999,
+      "reward": -42.030000000000335,
+      "extra": {
+        "covered_cells": 34,
+        "total_free_cells": 75,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 16,
+      "seed": 1016,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 73.33333333333333,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.892,
+      "reward": -40.14000000000026,
+      "extra": {
+        "covered_cells": 55,
+        "total_free_cells": 75,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 17,
+      "seed": 1017,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 47.88732394366197,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.9339999999999999,
+      "reward": -42.030000000000335,
+      "extra": {
+        "covered_cells": 34,
+        "total_free_cells": 71,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 18,
+      "seed": 1018,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 33.333333333333336,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.954,
+      "reward": -42.93000000000037,
+      "extra": {
+        "covered_cells": 24,
+        "total_free_cells": 72,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "sensors_a2c",
+      "episode_index": 19,
+      "seed": 1019,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 40.54054054054054,
+      "success": false,
+      "path_length": 500.0,
+      "steps": 500,
+      "redundancy_rate": 0.942,
+      "reward": -42.39000000000035,
+      "extra": {
+        "covered_cells": 30,
+        "total_free_cells": 74,
+        "terminated": false,
+        "truncated": true
+      }
+    }
+  ]
+}

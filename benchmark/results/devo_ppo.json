@@ -1,0 +1,479 @@
+{
+  "meta": {
+    "method": "devo_ppo",
+    "paper": "Devo, Mao, Costante & Loianno (2022), 'Autonomous Single-Image Drone Exploration With Deep Reinforcement Learning and Mixed Reality', IEEE Robotics and Automation Letters 7(2):5031-5038, DOI 10.1109/LRA.2022.3154019",
+    "scope_note": "Paper env is photorealistic UE4 + real drone + IMPALA; not reproduced. This reimplementation keeps the exact 11-action space and exact entropy reward formula in a 2D grid proxy with local partial crop, trained with PPO (closest SB3 actor-critic) instead of IMPALA.",
+    "code_source": "REIMPLEMENTATION by us -- no official code found for this paper",
+    "environment": "32x32 procedurally-generated rooms-and-corridors grid, 9x9 local crop observation",
+    "authors_published_results_for_reference_only": {
+      "note": "PAPER'S OWN reported numbers (Table I), NOT run by us",
+      "coverage_pct_standard_env": "58.2%",
+      "coverage_pct_large_env": "39.3%"
+    },
+    "model_path": "E:\\bead tracer\\benchmark\\baseline_devo_entropy\\models\\ppo_devo.zip",
+    "training_timesteps": 500000,
+    "device": "cuda",
+    "seed": 42,
+    "eval_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ]
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 2.768920791611104,
+    "std_coverage_pct": 1.0850331739887336,
+    "min_coverage_pct": 1.4388489208633093,
+    "max_coverage_pct": 4.861111111111111,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 405.1,
+    "std_path_length": 705.6552912010226,
+    "mean_steps": 1800.0,
+    "std_steps": 0.0,
+    "mean_redundancy_rate": 0.9983055555555556,
+    "std_redundancy_rate": 0.0008328702416980628,
+    "mean_reward": 0.0889944453783528,
+    "std_reward": 0.017663357787713465
+  },
+  "episodes": [
+    {
+      "method": "devo_ppo",
+      "episode_index": 0,
+      "seed": 1000,
+      "start_point": [
+        24,
+        18
+      ],
+      "coverage_pct": 1.935483870967742,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.07739826393077341,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 155,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 1,
+      "seed": 1001,
+      "start_point": [
+        23,
+        3
+      ],
+      "coverage_pct": 3.896103896103896,
+      "success": false,
+      "path_length": 6.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9972222222222222,
+      "reward": 0.08161812440049677,
+      "extra": {
+        "explored_cells": 6,
+        "total_free_cells": 154,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 2,
+      "seed": 1002,
+      "start_point": [
+        23,
+        12
+      ],
+      "coverage_pct": 2.6143790849673203,
+      "success": false,
+      "path_length": 1800.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9983333333333333,
+      "reward": 0.0805351465913134,
+      "extra": {
+        "explored_cells": 4,
+        "total_free_cells": 153,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 3,
+      "seed": 1003,
+      "start_point": [
+        17,
+        8
+      ],
+      "coverage_pct": 2.1739130434782608,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.09803762543135441,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 138,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 4,
+      "seed": 1004,
+      "start_point": [
+        5,
+        5
+      ],
+      "coverage_pct": 1.4388489208633093,
+      "success": false,
+      "path_length": 1.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9994444444444445,
+      "reward": 0.09520787051729696,
+      "extra": {
+        "explored_cells": 2,
+        "total_free_cells": 139,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 5,
+      "seed": 1005,
+      "start_point": [
+        27,
+        27
+      ],
+      "coverage_pct": 1.8867924528301887,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.07349235193305279,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 159,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 6,
+      "seed": 1006,
+      "start_point": [
+        8,
+        18
+      ],
+      "coverage_pct": 1.829268292682927,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.06901217161730963,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 164,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 7,
+      "seed": 1007,
+      "start_point": [
+        21,
+        24
+      ],
+      "coverage_pct": 1.6666666666666667,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.05713126558849753,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 180,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 8,
+      "seed": 1008,
+      "start_point": [
+        15,
+        23
+      ],
+      "coverage_pct": 2.112676056338028,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.09249597282660002,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 142,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 9,
+      "seed": 1009,
+      "start_point": [
+        18,
+        10
+      ],
+      "coverage_pct": 3.875968992248062,
+      "success": false,
+      "path_length": 6.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9977777777777778,
+      "reward": 0.11611893598985544,
+      "extra": {
+        "explored_cells": 5,
+        "total_free_cells": 129,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 10,
+      "seed": 1010,
+      "start_point": [
+        19,
+        16
+      ],
+      "coverage_pct": 1.5748031496062993,
+      "success": false,
+      "path_length": 1.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9994444444444445,
+      "reward": 0.11428571428570963,
+      "extra": {
+        "explored_cells": 2,
+        "total_free_cells": 127,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 11,
+      "seed": 1011,
+      "start_point": [
+        4,
+        17
+      ],
+      "coverage_pct": 4.37956204379562,
+      "success": false,
+      "path_length": 1800.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9972222222222222,
+      "reward": 0.1040850048335957,
+      "extra": {
+        "explored_cells": 6,
+        "total_free_cells": 137,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 12,
+      "seed": 1012,
+      "start_point": [
+        6,
+        23
+      ],
+      "coverage_pct": 3.1645569620253164,
+      "success": false,
+      "path_length": 9.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9977777777777778,
+      "reward": 0.0763882119832782,
+      "extra": {
+        "explored_cells": 5,
+        "total_free_cells": 158,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 13,
+      "seed": 1013,
+      "start_point": [
+        14,
+        4
+      ],
+      "coverage_pct": 2.7586206896551726,
+      "success": false,
+      "path_length": 1800.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9983333333333333,
+      "reward": 0.08989902773615899,
+      "extra": {
+        "explored_cells": 4,
+        "total_free_cells": 145,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 14,
+      "seed": 1014,
+      "start_point": [
+        14,
+        18
+      ],
+      "coverage_pct": 1.7964071856287425,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.06651795652677292,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 167,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 15,
+      "seed": 1015,
+      "start_point": [
+        11,
+        18
+      ],
+      "coverage_pct": 4.761904761904762,
+      "success": false,
+      "path_length": 1203.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9966666666666667,
+      "reward": 0.09116664529259715,
+      "extra": {
+        "explored_cells": 7,
+        "total_free_cells": 147,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 16,
+      "seed": 1016,
+      "start_point": [
+        26,
+        13
+      ],
+      "coverage_pct": 2.380952380952381,
+      "success": false,
+      "path_length": 3.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9988888888888889,
+      "reward": 0.11801521111985078,
+      "extra": {
+        "explored_cells": 3,
+        "total_free_cells": 126,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 17,
+      "seed": 1017,
+      "start_point": [
+        13,
+        23
+      ],
+      "coverage_pct": 4.861111111111111,
+      "success": false,
+      "path_length": 6.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9966666666666667,
+      "reward": 0.09519677402889168,
+      "extra": {
+        "explored_cells": 7,
+        "total_free_cells": 144,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 18,
+      "seed": 1018,
+      "start_point": [
+        6,
+        14
+      ],
+      "coverage_pct": 3.8461538461538463,
+      "success": false,
+      "path_length": 6.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9977777777777778,
+      "reward": 0.11427585541632412,
+      "extra": {
+        "explored_cells": 5,
+        "total_free_cells": 130,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "devo_ppo",
+      "episode_index": 19,
+      "seed": 1019,
+      "start_point": [
+        5,
+        12
+      ],
+      "coverage_pct": 2.4242424242424243,
+      "success": false,
+      "path_length": 1440.0,
+      "steps": 1800,
+      "redundancy_rate": 0.9983333333333333,
+      "reward": 0.06901077751732664,
+      "extra": {
+        "explored_cells": 4,
+        "total_free_cells": 165,
+        "terminated": false,
+        "truncated": true
+      }
+    }
+  ]
+}

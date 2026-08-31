@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "method": "rlcpp_mowing_tv1_bundled",
+    "paper": "Jonnarth, Zhao & Felsberg (2024), 'Learning Coverage Paths in Unknown Environments with Deep Reinforcement Learning', ICML 2024 (PMLR 235:22491-22508); journal extension: Jonnarth, Johansson, Zhao & Felsberg (2025), 'Sim-to-Real Transfer of Deep Reinforcement Learning Agents for Online Coverage Path Planning', IEEE Access 13:106883-106905.",
+    "code_source": "OFFICIAL code: github.com/arvijj/rl-cpp (BSD-3-Clause-Clear)",
+    "checkpoint_source": "OFFICIAL pretrained weights (mowing_tv1), from the Google Drive link in the official README",
+    "result_source": "Bundled inside the official pretrained-weights download -- computed by the paper authors with their own checkpoint and code, NOT run by us.",
+    "environment": "MowerEnv (official rl-cpp code) -- lawn-mowing task, continuous throttle+steering action space, multi-scale CNN map observation + lidar",
+    "algorithm": "PPO (Stable-Baselines3 1.6.2, as pinned by the official repo)",
+    "success_threshold_assumption": "coverage >= 0.99 (eval.py's own default max(--goal_coverage)); applied by us during parsing, not stored in the original CSVs",
+    "isolated_environment": "conda env 'rlcpp_baseline', Python 3.9, gym==0.21.0, stable-baselines3==1.6.2, torch==2.1.2+cu121 (see benchmark/README.md)"
+  },
+  "summary": {
+    "n_episodes": 6,
+    "mean_coverage_pct": 99.00421156465744,
+    "std_coverage_pct": 0.003144893403959556,
+    "min_coverage_pct": 99.00107991360692,
+    "max_coverage_pct": 99.01033822879984,
+    "success_rate": 1.0,
+    "n_success": 6,
+    "mean_path_length": 750.1817680251601,
+    "std_path_length": 413.679998052639,
+    "mean_steps": 8299.833333333334,
+    "std_steps": 5023.990393325033,
+    "mean_redundancy_rate": 0.33120234600057774,
+    "std_redundancy_rate": 0.06724170745701297
+  },
+  "episodes": [
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 0,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.00107991360692,
+      "success": true,
+      "path_length": 577.7643562316902,
+      "steps": 6212,
+      "redundancy_rate": 0.2792981326464906,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 577.7643562316902,
+        "collisions": 18,
+        "source_csv": "eval_metrics_1.csv"
+      }
+    },
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 1,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.00254969545304,
+      "success": true,
+      "path_length": 586.4406985980257,
+      "steps": 6262,
+      "redundancy_rate": 0.2662088789524114,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 586.4406985980257,
+        "collisions": 29,
+        "source_csv": "eval_metrics_2.csv"
+      }
+    },
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 2,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.01033822879984,
+      "success": true,
+      "path_length": 610.2795836484411,
+      "steps": 6401,
+      "redundancy_rate": 0.28073738478362753,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 610.2795836484411,
+        "collisions": 9,
+        "source_csv": "eval_metrics_3.csv"
+      }
+    },
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 3,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.0060841934133,
+      "success": true,
+      "path_length": 708.4780060219757,
+      "steps": 7464,
+      "redundancy_rate": 0.38210075026795287,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 708.4780060219757,
+        "collisions": 8,
+        "source_csv": "eval_metrics_4.csv"
+      }
+    },
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 4,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.0020646937371,
+      "success": true,
+      "path_length": 370.7474001735457,
+      "steps": 4144,
+      "redundancy_rate": 0.3250482625482626,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 370.7474001735457,
+        "collisions": 0,
+        "source_csv": "eval_metrics_5.csv"
+      }
+    },
+    {
+      "method": "rlcpp_mowing_tv1_bundled",
+      "episode_index": 5,
+      "seed": null,
+      "start_point": null,
+      "coverage_pct": 99.00315266293434,
+      "success": true,
+      "path_length": 1647.3805634772816,
+      "steps": 19316,
+      "redundancy_rate": 0.45382066680472144,
+      "reward": null,
+      "extra": {
+        "path_length_env_reported_m": 1647.3805634772816,
+        "collisions": 260,
+        "source_csv": "eval_metrics_6.csv"
+      }
+    }
+  ]
+}

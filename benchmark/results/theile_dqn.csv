@@ -1,0 +1,21 @@
+method,episode_index,seed,start_point,coverage_pct,success,path_length,steps,redundancy_rate,reward,extra_covered_cells,extra_landed,extra_remaining_budget,extra_terminated,extra_total_target_cells,extra_truncated
+theile_dqn,0,1000,"[0, 1]",0.0,False,0.0,1,1.0,-0.05,0,True,50,True,138,False
+theile_dqn,1,1001,"[2, 2]",57.2463768115942,False,28.0,56,0.5,51.200000000000024,79,False,0,False,138,True
+theile_dqn,2,1002,"[1, 2]",16.546762589928058,False,11.0,44,0.75,-5.700000000000022,23,False,0,False,139,True
+theile_dqn,3,1003,"[0, 2]",0.0,False,0.0,1,1.0,-0.05,0,True,33,True,136,False
+theile_dqn,4,1004,"[2, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,24,True,138,False
+theile_dqn,5,1005,"[1, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,28,True,138,False
+theile_dqn,6,1006,"[1, 1]",0.0,False,0.0,1,1.0,-0.05,0,True,41,True,140,False
+theile_dqn,7,1007,"[0, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,27,True,140,False
+theile_dqn,8,1008,"[1, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,32,True,138,False
+theile_dqn,9,1009,"[2, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,26,True,140,False
+theile_dqn,10,1010,"[2, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,28,True,140,False
+theile_dqn,11,1011,"[0, 2]",0.0,False,0.0,1,1.0,-0.05,0,True,38,True,139,False
+theile_dqn,12,1012,"[2, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,39,True,136,False
+theile_dqn,13,1013,"[0, 1]",0.0,False,1.0,2,1.0,-0.1,0,True,63,True,139,False
+theile_dqn,14,1014,"[1, 2]",32.608695652173914,False,18.0,47,0.6170212765957447,18.150000000000066,45,False,0,False,138,True
+theile_dqn,15,1015,"[1, 2]",0.7092198581560284,False,2.0,3,0.6666666666666667,0.8499999999999999,1,True,40,True,141,False
+theile_dqn,16,1016,"[1, 2]",7.092198581560283,False,6.0,36,0.8333333333333334,-16.8,10,False,0,False,141,True
+theile_dqn,17,1017,"[2, 2]",97.85714285714286,False,60.0,71,0.23943661971830987,122.44999999999997,137,False,0,False,140,True
+theile_dqn,18,1018,"[2, 2]",71.11111111111111,False,36.0,55,0.36363636363636365,82.25000000000011,96,False,0,False,135,True
+theile_dqn,19,1019,"[1, 0]",0.0,False,0.0,1,1.0,-0.05,0,True,35,True,138,False

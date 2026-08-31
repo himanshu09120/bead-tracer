@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "method": "theile_dqn",
+    "paper": "Theile, Bayerlein, Nai, Gesbert & Caccamo (2020), 'UAV Coverage Path Planning under Varying Power Constraints using Deep Reinforcement Learning', IEEE/RSJ IROS 2020, DOI 10.1109/IROS45743.2020.9340934",
+    "scope_note": "The paper trains Double DQN (DDQN); SB3 off-the-shelf DQN computes the standard (non-double) target, so this reproduces vanilla DQN, not DDQN.",
+    "code_source": "REIMPLEMENTATION by us -- no official code exists for this specific 2020 paper.",
+    "environment": "16x16 grid, 3-channel map + coverage grid + position + movement budget",
+    "model_path": "E:\\bead tracer\\benchmark\\baseline_theile_uav\\models\\dqn_theile.zip",
+    "training_timesteps": 500000,
+    "device": "cuda",
+    "seed": 42,
+    "eval_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ]
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 14.158575373083323,
+    "std_coverage_pct": 27.648307105174172,
+    "min_coverage_pct": 0.0,
+    "max_coverage_pct": 97.85714285714286,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 8.1,
+    "std_path_length": 15.578510840256843,
+    "mean_steps": 16.3,
+    "std_steps": 23.826665734004834,
+    "mean_redundancy_rate": 0.848504712997521,
+    "std_redundancy_rate": 0.2369029848800383,
+    "mean_reward": 12.585000000000008,
+    "std_reward": 33.05886832606345
+  },
+  "episodes": [
+    {
+      "method": "theile_dqn",
+      "episode_index": 0,
+      "seed": 1000,
+      "start_point": [
+        0,
+        1
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 138,
+        "landed": true,
+        "remaining_budget": 50,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 1,
+      "seed": 1001,
+      "start_point": [
+        2,
+        2
+      ],
+      "coverage_pct": 57.2463768115942,
+      "success": false,
+      "path_length": 28.0,
+      "steps": 56,
+      "redundancy_rate": 0.5,
+      "reward": 51.200000000000024,
+      "extra": {
+        "covered_cells": 79,
+        "total_target_cells": 138,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 2,
+      "seed": 1002,
+      "start_point": [
+        1,
+        2
+      ],
+      "coverage_pct": 16.546762589928058,
+      "success": false,
+      "path_length": 11.0,
+      "steps": 44,
+      "redundancy_rate": 0.75,
+      "reward": -5.700000000000022,
+      "extra": {
+        "covered_cells": 23,
+        "total_target_cells": 139,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 3,
+      "seed": 1003,
+      "start_point": [
+        0,
+        2
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 136,
+        "landed": true,
+        "remaining_budget": 33,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 4,
+      "seed": 1004,
+      "start_point": [
+        2,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 138,
+        "landed": true,
+        "remaining_budget": 24,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 5,
+      "seed": 1005,
+      "start_point": [
+        1,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 138,
+        "landed": true,
+        "remaining_budget": 28,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 6,
+      "seed": 1006,
+      "start_point": [
+        1,
+        1
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 140,
+        "landed": true,
+        "remaining_budget": 41,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 7,
+      "seed": 1007,
+      "start_point": [
+        0,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 140,
+        "landed": true,
+        "remaining_budget": 27,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 8,
+      "seed": 1008,
+      "start_point": [
+        1,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 138,
+        "landed": true,
+        "remaining_budget": 32,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 9,
+      "seed": 1009,
+      "start_point": [
+        2,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 140,
+        "landed": true,
+        "remaining_budget": 26,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 10,
+      "seed": 1010,
+      "start_point": [
+        2,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 140,
+        "landed": true,
+        "remaining_budget": 28,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 11,
+      "seed": 1011,
+      "start_point": [
+        0,
+        2
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 139,
+        "landed": true,
+        "remaining_budget": 38,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 12,
+      "seed": 1012,
+      "start_point": [
+        2,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 136,
+        "landed": true,
+        "remaining_budget": 39,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 13,
+      "seed": 1013,
+      "start_point": [
+        0,
+        1
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 1.0,
+      "steps": 2,
+      "redundancy_rate": 1.0,
+      "reward": -0.1,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 139,
+        "landed": true,
+        "remaining_budget": 63,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 14,
+      "seed": 1014,
+      "start_point": [
+        1,
+        2
+      ],
+      "coverage_pct": 32.608695652173914,
+      "success": false,
+      "path_length": 18.0,
+      "steps": 47,
+      "redundancy_rate": 0.6170212765957447,
+      "reward": 18.150000000000066,
+      "extra": {
+        "covered_cells": 45,
+        "total_target_cells": 138,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 15,
+      "seed": 1015,
+      "start_point": [
+        1,
+        2
+      ],
+      "coverage_pct": 0.7092198581560284,
+      "success": false,
+      "path_length": 2.0,
+      "steps": 3,
+      "redundancy_rate": 0.6666666666666667,
+      "reward": 0.8499999999999999,
+      "extra": {
+        "covered_cells": 1,
+        "total_target_cells": 141,
+        "landed": true,
+        "remaining_budget": 40,
+        "terminated": true,
+        "truncated": false
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 16,
+      "seed": 1016,
+      "start_point": [
+        1,
+        2
+      ],
+      "coverage_pct": 7.092198581560283,
+      "success": false,
+      "path_length": 6.0,
+      "steps": 36,
+      "redundancy_rate": 0.8333333333333334,
+      "reward": -16.8,
+      "extra": {
+        "covered_cells": 10,
+        "total_target_cells": 141,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 17,
+      "seed": 1017,
+      "start_point": [
+        2,
+        2
+      ],
+      "coverage_pct": 97.85714285714286,
+      "success": false,
+      "path_length": 60.0,
+      "steps": 71,
+      "redundancy_rate": 0.23943661971830987,
+      "reward": 122.44999999999997,
+      "extra": {
+        "covered_cells": 137,
+        "total_target_cells": 140,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 18,
+      "seed": 1018,
+      "start_point": [
+        2,
+        2
+      ],
+      "coverage_pct": 71.11111111111111,
+      "success": false,
+      "path_length": 36.0,
+      "steps": 55,
+      "redundancy_rate": 0.36363636363636365,
+      "reward": 82.25000000000011,
+      "extra": {
+        "covered_cells": 96,
+        "total_target_cells": 135,
+        "landed": false,
+        "remaining_budget": 0,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "theile_dqn",
+      "episode_index": 19,
+      "seed": 1019,
+      "start_point": [
+        1,
+        0
+      ],
+      "coverage_pct": 0.0,
+      "success": false,
+      "path_length": 0.0,
+      "steps": 1,
+      "redundancy_rate": 1.0,
+      "reward": -0.05,
+      "extra": {
+        "covered_cells": 0,
+        "total_target_cells": 138,
+        "landed": true,
+        "remaining_budget": 35,
+        "terminated": true,
+        "truncated": false
+      }
+    }
+  ]
+}
