@@ -16,3 +16,8 @@ tensorboard/*
 
 # Local tooling state (not project content)
 .claude/
+
+# External cloned repo (arvijj/rl-cpp), vendored locally for benchmark
+# reproduction only -- has its own git history/weights (~100MB), not
+# something we should commit. Re-clone via benchmark/README.md instructions.
+benchmark/baseline_rlcpp_external/official_code/
