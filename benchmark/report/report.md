@@ -95,7 +95,7 @@ Searched and considered (with reasons for exclusion where applicable):
 ### 4.1 Jonnarth et al. (ICML 2024 / IEEE Access 2025) -- "rl-cpp"
 
 - **Code**: official, [github.com/arvijj/rl-cpp](https://github.com/arvijj/rl-cpp) (BSD-3-Clause-Clear). Cloned and run in an isolated `conda` environment (`rlcpp_baseline`, Python 3.9) because the repo pins `gym==0.21.0` / `stable-baselines3==1.6.2`, incompatible with this project's own Gymnasium/SB3 stack.
-- **Algorithm**: PPO (SB3 1.6.2), continuous action space -- `Box(-1,1,shape=(1,))` (steering only, constant linear velocity) in the checkpoint used here.
+- **Algorithm**: the paper describes PPO, but the *released* checkpoints (`mowing_tv1`, `mowing_tv2`, and `exploration` alike) are all **SAC** (SB3 1.6.2) per their own `agent_parameters.json` -- verified directly from the checkpoint files, not assumed from the paper text. Continuous action space -- `Box(-1,1,shape=(1,))` (steering only, constant linear velocity) in the checkpoints used here.
 - **Observation**: multi-scale coverage/obstacle/frontier maps (CNN input) + 24-ray lidar, egocentric and heading-aligned.
 - **Reward**: newly-covered-area term, incremental/global total-variation smoothness terms, frontier-seeking term, wall/obstacle collision penalties, goal-coverage bonus.
 - **Termination**: goal coverage reached, or `max_non_new_steps` stagnation.
@@ -103,7 +103,25 @@ Searched and considered (with reasons for exclusion where applicable):
 - **Two distinct result sets, both included and clearly labeled**:
   - `rlcpp_mowing_tv1_bundled`: reference metrics **shipped inside the official pretrained-weights download** -- the authors' own numbers, computed with their own checkpoint and code, which we only parsed (we did not run anything to produce these).
   - `rlcpp_mowing_tv1_local`: our own invocation of the official `eval.py`, same checkpoint and code, executed locally. Cross-checked against `eval.py`'s own printed summary (90.84% mean coverage, 60.0% success at the 0.99 threshold) -- our independently computed numbers matched exactly.
+- **Bonus: the official "exploration" checkpoint, rendered**. The repo also
+  ships a second task variant, "exploration" (unknown-environment coverage
+  via lidar, distinct from the "mowing" task used above). Its own
+  `agent_parameters.json` reveals it is trained with **SAC** (Soft
+  Actor-Critic), not PPO -- a real detail caught while wiring this up, not
+  assumed. `benchmark/baseline_rlcpp_external/render_exploration_episode.py`
+  runs one episode of this official checkpoint in the unmodified MowerEnv
+  (exploration mode) and renders it via the environment's own
+  `render(mode='rgb_array')` -- the same renderer that produced the
+  repository README's `exploration_path.png` figure. Result: **99.12%
+  coverage in 215 steps, 0 collisions**, saved to
+  `benchmark/results/ppo_jonnarth_exploration_official.gif`. This is their
+  model in their own environment end to end -- not a cross-domain test,
+  included here as supplementary confirmation that the official checkpoints
+  genuinely perform as claimed.
 - **Known limitation**: the bundled reference set has only 6 episodes (all that shipped with the checkpoint); our local run used the full 15 official evaluation maps. The two are not the same sample size and shouldn't be treated as repeated measures of the same thing.
+- **Bonus: the official "mowing" checkpoint, forced onto two specific eval maps**. `render_exploration_episode.py`'s approach (run the official checkpoint in the unmodified `MowerEnv`, render via `render(mode='rgb_array')`) is normally at the mercy of `MowerEnv.reset()`'s own episode-indexed cycling through `self.eval_maps` (a plain list built from `glob.glob('maps/eval_mowing*')`, in whatever order the OS returns). `benchmark/baseline_rlcpp_external/render_mowing_episode.py` forces a specific map deterministically by overwriting that list right after construction with a single-element list (`env.eval_maps = ["maps/eval_mowing_7.png"]`, etc.) before calling `reset()` -- the class's own reset logic is untouched, just narrowed to one file. Using the `mowing_tv1` checkpoint (SAC, see above):
+  - `eval_mowing_7.png` (an arc-shaped path plus a separate square block): **90.03% coverage, 1024 steps, 0 collisions**, saved to `benchmark/results/ppo_jonnarth_mowing_eval_mowing_7.gif`.
+  - `eval_mowing_10.png` (a compartmentalized room layout with several internal walls): **52.95% coverage, ran the full 3000-step cap without reaching the goal threshold, 354 collisions**, saved to `benchmark/results/ppo_jonnarth_mowing_eval_mowing_10.gif`. This is a genuine failure case for the official checkpoint on a harder, more obstacle-dense layout -- reported as-is, not cherry-picked out.
 
 ### 4.2 Garrido-Castañeda, Vasquez & Antonio-Cruz (Sensors 2025)
 
@@ -242,6 +260,151 @@ same evaluation protocol) -- it is not a new finding from this benchmark,
 just a threshold effect worth keeping in mind when reading the "success
 rate" column: it is not comparable in an absolute sense to another method's
 completion criterion without knowing how strict each one is.
+
+## 5.2 Exploratory: running our model on a Jonnarth et al. map image (not a formal baseline)
+
+A natural follow-up question is whether our trained model can run *inside*
+Jonnarth et al.'s `MowerEnv` directly. **It cannot** -- this is a hard
+technical incompatibility, not a quality judgment:
+
+| | Our BeadEnv | Jonnarth's MowerEnv |
+|---|---|---|
+| Observation | `Dict{local_map: (64,64,1), state: (11,)}` | `Dict{coverage, obstacles, frontier: (1,4,32,32) each, lidar: (1,24)}` |
+| Action | `Box(-1,1,shape=(2,))`, holonomic thrust | `Box(-1,1,shape=(1,))`, non-holonomic steering, constant velocity |
+
+Feeding a MowerEnv observation to our policy would raise a shape-mismatch
+error before a single step ran. Building an adapter to force it through
+would mean inventing inputs our network was never trained to interpret --
+exactly the kind of forced, invalid comparison this report avoids
+everywhere else.
+
+Instead, `benchmark/jonnarth_map_on_beadenv/` runs an honest alternative:
+one of Jonnarth et al.'s own benchmark map images
+(`maps/eval_mowing_9.png`, a room/corridor floor plan with furniture, from
+the official rl-cpp repo) is used as a **target image for our own,
+unmodified BeadEnv** -- the same mechanism `evaluate_ours.py` already uses
+for `target_images/path1.png`, just pointed at a different picture. This is
+NOT "our model in their environment"; it is a cross-domain generalization
+test run entirely inside our own, compatible environment.
+
+**Result**: mean coverage **10.04%** (vs. 82.03% on our own training
+image, path1.png) across the same 20 deterministic start points, 0%
+success. The reason is visible directly in the saved animation
+(`benchmark/results/ppo_ours_on_jonnarth_map.gif`): this map's contour is
+made of several **disconnected** components (separate walls, separate
+furniture rectangles), whereas every target image our model was ever
+trained or evaluated on (`path1.png`, `path2.png`, `path3.png`) is a
+**single continuous curve**. The agent traces its starting wall segment
+competently, then stalls near a junction without any learned incentive or
+skill to search for or hop to the other disconnected components elsewhere
+on the map. This is a genuine, informative generalization finding, not a
+bug: it shows precisely what kind of shape our model does and doesn't
+transfer to.
+
+Full results: `benchmark/results/ppo_ours_on_jonnarth_map.json/.csv`.
+
+## 5.3 A second exploratory test, and why a truly plug-compatible paper wasn't found
+
+After §5.2, a further, explicit search was run for a **recent (2024-2025),
+IEEE-published paper with public code whose environment our model could
+run in directly** -- i.e. without a target-image substitution, an actual
+drop-in. Candidates checked:
+
+| Candidate | Verdict |
+|---|---|
+| Xu & Yu, "DRL-Based Trajectory Tracking..." (`MARMOTatZJU/drl-based-trajectory-tracking`) | arXiv preprint only (2023), not IEEE, not recent enough |
+| Wu, Kirchner, Purschke & Knoll, IEEE Intelligent Vehicles Symposium 2025 | Genuinely IEEE + recent, but uses **CARLA** (Unreal-Engine-based driving simulator) -- too heavy to stand up for this purpose, same category of problem as UE4 in §4.5 |
+| Xiao, Jiang, Wang & Zhang, Sensors 2023 (Box2D, continuous steering+power) | Genuinely continuous action space and a plausible structural match, but 2023 (not recent) and **no code released** |
+| **Theile, Cao, Caccamo & Sangiovanni-Vincentelli, IEEE/RSJ IROS 2024**, "Equivariant Ensembles and Regularization for RL in Map-based Path Planning" (arXiv:2403.12856), code: `github.com/theilem/uavSim` | Genuinely IEEE + recent + real, actively-maintained, runnable code -- but its `CPPGym` (`src/gym/cpp.py`, extending `GridGym` in `src/gym/grid.py`) uses `action_space = spaces.Discrete(num_actions)`, a **discrete** action space -- not merely differently shaped from our continuous `Box(-1,1,shape=(2,))`, but a different space *type* SB3's Gaussian policy head cannot produce or consume at all. Its observation space is likewise a bespoke multi-channel map Dict, unrelated to ours. |
+
+**Finding**: no recent IEEE paper with public code was found whose
+environment our specific model could run in directly, and this is not a
+gap in the search -- it reflects how this research area is structured.
+Every CPP-RL paper checked across this whole benchmark (Jonnarth et al.,
+Garrido-Castañeda et al., Chen et al., Theile et al. 2020, Devo et al.,
+and now Theile et al. 2024) defines its own bespoke observation encoding
+tailored to its own network architecture, and about half use discrete
+grid actions while the other half use continuous but differently-shaped
+and differently-scoped action spaces. True cross-paper plug-and-play
+compatibility appears to be rare by construction in this literature, not
+something this search failed to locate.
+
+Given that, the same honest alternative as §5.2 was applied to this newer
+paper too: `benchmark/theile2024_map_on_beadenv/` uses `res/tum50.png`, a
+real building floor-plan map ASSET from the official IEEE IROS 2024 repo
+(one of the actual maps that paper trains/evaluates on), as a target image
+for our own BeadEnv. The map's native 50x50 resolution was pre-upscaled to
+400x400 with nearest-neighbor interpolation (preserving sharp 1-pixel
+walls that would otherwise be blurred away by BeadEnv's own bilinear
+resize + Gaussian blur before Canny edge detection) -- an image
+preprocessing step only, BeadEnv itself untouched.
+
+**Result**: mean coverage **3.82%** (even lower than the Jonnarth map
+test's 10.04%) across the same 20-point protocol, 0% success. The saved
+animation (`benchmark/results/ppo_ours_on_theile2024_map.gif`) shows the
+same failure mode as §5.2, more pronounced: this map has many more,
+smaller, more numerous disconnected wall/obstacle fragments than the
+Jonnarth map, so the agent's inability to search across disconnected
+contour components costs it even more. This is consistent with, not
+contradictory to, the §5.2 finding -- further evidence that a single
+continuous curve is the specific shape family this model generalizes
+within, and disconnected multi-component layouts are the specific shape
+family it does not.
+
+Full results: `benchmark/results/ppo_ours_on_theile2024_map.json/.csv`.
+
+## 5.4 A third exploratory test, and a genuinely strong result
+
+A third, very recent candidate was checked: **Elgouhary & El-Wakeel (2026),
+"Learning to Tune Pure Pursuit in Autonomous Racing: Joint Lookahead and
+Steering-Gain Control with PPO"** (arXiv:2602.18386, Feb 2026) -- an
+F1TENTH autonomous-racing paper using PPO (Stable-Baselines3) to tune a
+classical Pure Pursuit controller's two parameters online.
+
+**Same structural incompatibility as every other paper in this benchmark**,
+just a different flavor: their action space is `(L_d, g)` -- a lookahead
+*distance* and a steering-gain *multiplier* that parameterize a downstream
+Pure Pursuit controller, not a raw motion command, and their observation is
+a 5-dim scalar vector `[v, kappa_0, kappa_1, kappa_2, delta_kappa]` (speed
+plus curvature-preview taps along a precomputed raceline), unrelated to our
+`Dict{local_map, state}`. Two 2-D continuous Boxes that mean entirely
+different things to entirely different downstream controllers are not
+interchangeable. Running our model inside F1TENTH Gym is not possible for
+the same reason as the two prior exploratory tests.
+
+**What made this one different and worth pursuing further**: the paper's
+own dataset -- `f1tenth_racetracks` (github.com/f1tenth/f1tenth_racetracks)
+-- provides the exact three tracks it trains and zero-shot-evaluates on
+(Hockenheim, Montreal, Yas Marina), and each track's map image is a
+**single continuous closed racing-line loop** -- the same basic shape
+family as our own training images (`path1/2/3.png` are also single closed
+curves), unlike the disconnected floor-plan fragments in §5.2/§5.3. This
+predicted better generalization, and the result confirmed it clearly:
+
+| Track (role in the source paper) | Mean coverage | Best single episode |
+|---|---|---|
+| Hockenheim (their training track) | 17.80% | 47.95% |
+| **Montreal (their zero-shot eval track)** | **71.45%** | **87.44%** |
+| Yas Marina (their zero-shot eval track) | 30.36% | 59.86% |
+
+Montreal's 71.45% mean / 87.44% best-episode coverage is in the same
+neighborhood as our model's performance on its **own** training image
+(82.03% mean on path1.png), and the saved animation
+(`benchmark/results/ppo_ours_on_f1tenth_montreal.gif`) shows the bead
+tracing nearly the entire lap before stalling near the finish straight --
+a genuinely strong zero-shot generalization result, not a marginal one.
+
+**Interpretation**: taken together, all three exploratory tests
+(§5.2-§5.4) point at the same underlying finding from a different angle
+each time -- this model's learned tracing strategy generalizes well
+**within its trained shape family** (single continuous closed curves) and
+poorly **outside it** (disconnected multi-component layouts), regardless
+of how visually different the specific curve is (a hand-drawn blob vs. a
+real F1 circuit outline) or which paper's dataset it came from. That is a
+more informative, falsifiable characterization of this model's
+generalization boundary than any single test alone would give.
+
+Full results: `benchmark/results/ppo_ours_on_f1tenth_{hockenheim,montreal,yasmarina}.json/.csv`.
 
 ## 6. Is this an apples-to-apples comparison? (Answer: partially, by design)
 

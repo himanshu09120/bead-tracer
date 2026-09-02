@@ -1,0 +1,451 @@
+{
+  "meta": {
+    "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+    "purpose": "EXPLORATORY cross-domain generalization test, not one of this benchmark's formal paper baselines. Answers 'how does our contour-tracing agent handle a target shape drawn from Jonnarth et al.'s own benchmark set', NOT 'our model ran inside MowerEnv' (which is not possible -- see this script's module docstring for the full incompatibility explanation).",
+    "source_image": "benchmark/jonnarth_map_on_beadenv/jonnarth_eval_mowing_7.png -- a non-default image explicitly passed via --image; see the path itself for provenance (not auto-described here)",
+    "model_path": "E:\\bead tracer\\models\\bead_ppo_final.zip",
+    "environment": "BeadEnv (this project's own, unmodified environment) -- Jonnarth et al.'s map image used only as a contour-extraction source, not their environment",
+    "n_points": 20,
+    "device": "cuda",
+    "completion_frac": 0.95
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 9.959898691430983,
+    "std_coverage_pct": 7.851260625233306,
+    "min_coverage_pct": 0.9286618826509077,
+    "max_coverage_pct": 23.97636133389616,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 292.1472354930265,
+    "std_path_length": 206.7683760971909,
+    "mean_steps": 729.4,
+    "std_steps": 289.3861434139513,
+    "mean_redundancy_rate": 0.8200577512335251,
+    "std_redundancy_rate": 0.14617437453350726,
+    "mean_reward": 28.373805507504034,
+    "std_reward": 46.337631623049965
+  },
+  "episodes": [
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 0,
+      "seed": null,
+      "start_point": [
+        560,
+        139
+      ],
+      "coverage_pct": 3.9257070493879276,
+      "success": false,
+      "path_length": 155.04461971229026,
+      "steps": 654,
+      "redundancy_rate": 0.9281345565749235,
+      "reward": -11.639251508688016,
+      "extra": {
+        "covered_pixels": 93,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 1,
+      "seed": null,
+      "start_point": [
+        599,
+        151
+      ],
+      "coverage_pct": 1.9839594765723934,
+      "success": false,
+      "path_length": 99.65423177038933,
+      "steps": 465,
+      "redundancy_rate": 0.9612903225806452,
+      "reward": -15.07398690990433,
+      "extra": {
+        "covered_pixels": 47,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 2,
+      "seed": null,
+      "start_point": [
+        441,
+        169
+      ],
+      "coverage_pct": 2.574926129168426,
+      "success": false,
+      "path_length": 124.63258446505625,
+      "steps": 519,
+      "redundancy_rate": 0.9460500963391136,
+      "reward": -13.875064691947367,
+      "extra": {
+        "covered_pixels": 61,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 3,
+      "seed": null,
+      "start_point": [
+        483,
+        180
+      ],
+      "coverage_pct": 3.1658927817644575,
+      "success": false,
+      "path_length": 149.77226156537358,
+      "steps": 552,
+      "redundancy_rate": 0.9311594202898551,
+      "reward": -10.900405566767637,
+      "extra": {
+        "covered_pixels": 75,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 4,
+      "seed": null,
+      "start_point": [
+        426,
+        200
+      ],
+      "coverage_pct": 4.685521317011397,
+      "success": false,
+      "path_length": 181.50793421474398,
+      "steps": 728,
+      "redundancy_rate": 0.9175824175824175,
+      "reward": -9.874162976799521,
+      "extra": {
+        "covered_pixels": 111,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 5,
+      "seed": null,
+      "start_point": [
+        383,
+        224
+      ],
+      "coverage_pct": 0.9286618826509077,
+      "success": false,
+      "path_length": 23.047156910978853,
+      "steps": 354,
+      "redundancy_rate": 0.9915254237288136,
+      "reward": -16.4488495186371,
+      "extra": {
+        "covered_pixels": 22,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 6,
+      "seed": null,
+      "start_point": [
+        301,
+        251
+      ],
+      "coverage_pct": 5.403123680878007,
+      "success": false,
+      "path_length": 183.2555606908924,
+      "steps": 518,
+      "redundancy_rate": 0.8783783783783784,
+      "reward": 3.545084634413223,
+      "extra": {
+        "covered_pixels": 128,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 7,
+      "seed": null,
+      "start_point": [
+        305,
+        281
+      ],
+      "coverage_pct": 1.0130856901646264,
+      "success": false,
+      "path_length": 23.898497197028227,
+      "steps": 353,
+      "redundancy_rate": 0.9971671388101983,
+      "reward": -17.394161802278397,
+      "extra": {
+        "covered_pixels": 24,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 8,
+      "seed": null,
+      "start_point": [
+        243,
+        314
+      ],
+      "coverage_pct": 9.835373575348248,
+      "success": false,
+      "path_length": 341.77836721160196,
+      "steps": 831,
+      "redundancy_rate": 0.8411552346570397,
+      "reward": 18.502360228258066,
+      "extra": {
+        "covered_pixels": 233,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 9,
+      "seed": null,
+      "start_point": [
+        245,
+        351
+      ],
+      "coverage_pct": 2.406078514140988,
+      "success": false,
+      "path_length": 87.17985810324856,
+      "steps": 461,
+      "redundancy_rate": 0.9522776572668112,
+      "reward": -12.94784939646562,
+      "extra": {
+        "covered_pixels": 57,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 10,
+      "seed": null,
+      "start_point": [
+        219,
+        391
+      ],
+      "coverage_pct": 4.178978471929084,
+      "success": false,
+      "path_length": 101.40624220940738,
+      "steps": 650,
+      "redundancy_rate": 0.9076923076923077,
+      "reward": -8.194333654911832,
+      "extra": {
+        "covered_pixels": 99,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 11,
+      "seed": null,
+      "start_point": [
+        199,
+        437
+      ],
+      "coverage_pct": 6.796116504854369,
+      "success": false,
+      "path_length": 152.67826265422428,
+      "steps": 784,
+      "redundancy_rate": 0.8533163265306123,
+      "reward": 7.351401199933353,
+      "extra": {
+        "covered_pixels": 161,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 12,
+      "seed": null,
+      "start_point": [
+        154,
+        486
+      ],
+      "coverage_pct": 15.871675812579147,
+      "success": false,
+      "path_length": 503.03622361972185,
+      "steps": 1186,
+      "redundancy_rate": 0.7875210792580101,
+      "reward": 48.14437923968648,
+      "extra": {
+        "covered_pixels": 376,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 13,
+      "seed": null,
+      "start_point": [
+        596,
+        499
+      ],
+      "coverage_pct": 15.871675812579147,
+      "success": false,
+      "path_length": 406.7920878094787,
+      "steps": 671,
+      "redundancy_rate": 0.593144560357675,
+      "reward": 79.96484832298549,
+      "extra": {
+        "covered_pixels": 376,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 14,
+      "seed": null,
+      "start_point": [
+        720,
+        499
+      ],
+      "coverage_pct": 21.148163782186575,
+      "success": false,
+      "path_length": 533.5966996035874,
+      "steps": 706,
+      "redundancy_rate": 0.5609065155807366,
+      "reward": 104.27020094435603,
+      "extra": {
+        "covered_pixels": 501,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 15,
+      "seed": null,
+      "start_point": [
+        149,
+        513
+      ],
+      "coverage_pct": 18.95314478682989,
+      "success": false,
+      "path_length": 573.676435841216,
+      "steps": 1267,
+      "redundancy_rate": 0.7647987371744278,
+      "reward": 65.12564046404974,
+      "extra": {
+        "covered_pixels": 449,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 16,
+      "seed": null,
+      "start_point": [
+        144,
+        552
+      ],
+      "coverage_pct": 20.89489235964542,
+      "success": false,
+      "path_length": 623.9217117903631,
+      "steps": 1497,
+      "redundancy_rate": 0.7775551102204409,
+      "reward": 67.87135958822475,
+      "extra": {
+        "covered_pixels": 495,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 17,
+      "seed": null,
+      "start_point": [
+        499,
+        590
+      ],
+      "coverage_pct": 15.956099620092868,
+      "success": false,
+      "path_length": 447.8091643636933,
+      "steps": 789,
+      "redundancy_rate": 0.6349809885931559,
+      "reward": 77.65654778974371,
+      "extra": {
+        "covered_pixels": 378,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 18,
+      "seed": null,
+      "start_point": [
+        499,
+        674
+      ],
+      "coverage_pct": 19.628535246939638,
+      "success": false,
+      "path_length": 522.7907903857375,
+      "steps": 802,
+      "redundancy_rate": 0.6084788029925188,
+      "reward": 94.50966222564657,
+      "extra": {
+        "covered_pixels": 465,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_jonnarth_map_jonnarth_eval_mowing_7",
+      "episode_index": 19,
+      "seed": null,
+      "start_point": [
+        499,
+        799
+      ],
+      "coverage_pct": 23.97636133389616,
+      "success": false,
+      "path_length": 607.4660197414975,
+      "steps": 801,
+      "redundancy_rate": 0.568039950062422,
+      "reward": 116.88269153918309,
+      "extra": {
+        "covered_pixels": 568,
+        "total_contour_pixels": 2369,
+        "terminated": false,
+        "truncated": true
+      }
+    }
+  ]
+}

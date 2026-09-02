@@ -43,7 +43,21 @@ METHOD_ORDER = [
     ("rlcpp_mowing_tv1_local", "Official code+checkpoint: Jonnarth et al. 2024/2025 (our local run)"),
     ("theile_dqn", "Reimpl.: Theile et al. 2020 IROS (DQN, UAV power-constrained grid)"),
     ("devo_ppo", "Reimpl.: Devo et al. 2022 RA-L (PPO proxy for IMPALA, exploration grid)"),
+    ("ppo_ours_on_jonnarth_map", "[EXPLORATORY] Our PPO on a Jonnarth et al. map image (BeadEnv)"),
+    ("ppo_ours_on_theile2024_map", "[EXPLORATORY] Our PPO on a Theile et al. 2024 map image (BeadEnv)"),
+    ("ppo_ours_on_f1tenth_hockenheim", "[EXPLORATORY] Our PPO on F1TENTH Hockenheim track (BeadEnv)"),
+    ("ppo_ours_on_f1tenth_montreal", "[EXPLORATORY] Our PPO on F1TENTH Montreal track (BeadEnv)"),
+    ("ppo_ours_on_f1tenth_yasmarina", "[EXPLORATORY] Our PPO on F1TENTH Yas Marina track (BeadEnv)"),
 ]
+
+# Methods that are cross-domain generalization tests of OUR OWN model, not
+# independent baselines -- kept out of METHOD_ORDER's implicit "these are
+# all baselines" framing and footnoted separately in the table.
+EXPLORATORY_METHODS = {
+    "ppo_ours_on_jonnarth_map", "ppo_ours_on_theile2024_map",
+    "ppo_ours_on_f1tenth_hockenheim", "ppo_ours_on_f1tenth_montreal",
+    "ppo_ours_on_f1tenth_yasmarina",
+}
 
 
 def load_all_results() -> dict:
@@ -88,6 +102,13 @@ def write_markdown_table(results: dict, out_path: str):
             f"{s['n_episodes']} |"
         )
     lines += [
+        "",
+        "**Rows marked `[EXPLORATORY]`** are cross-domain generalization "
+        "tests of OUR OWN model on a map image borrowed from another "
+        "paper's official repo, run inside our own BeadEnv -- NOT "
+        "independent baselines, and not directly comparable to the rows "
+        "above them (different target image, not a different method). See "
+        "report.md §5.2/§5.3.",
         "",
         "**Important caveat on 'apples-to-apples':** path length and step "
         "count are in each method's OWN native units (BeadEnv: raster "

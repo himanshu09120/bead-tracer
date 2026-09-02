@@ -79,7 +79,50 @@ benchmark/
 │                                   # 11-action space + entropy reward, in a
 │                                   # 2-D grid proxy (not UE4/RGB)
 │   └── train_and_evaluate.py       # Trains + evaluates SB3 PPO
+├── jonnarth_map_on_beadenv/
+│   ├── jonnarth_eval_mowing_9.png   # a Jonnarth et al. benchmark map image
+│                                   # (from the official rl-cpp repo), used
+│                                   # as a TARGET IMAGE for our own BeadEnv
+│                                   # -- NOT running our model inside
+│                                   # MowerEnv (impossible, see report.md §5.2)
+│   ├── evaluate.py                 # evaluates our model on this map image
+│   └── simulate.py                 # animated replay, same as project's own
+├── theile2024_map_on_beadenv/
+│   ├── theile2024_tum50.png         # a real map asset from Theile et al.'s
+│                                   # IEEE IROS 2024 official repo
+│                                   # (theilem/uavSim), used as a TARGET
+│                                   # IMAGE for our own BeadEnv -- NOT
+│                                   # running our model inside their
+│                                   # CPPGym (impossible, discrete vs
+│                                   # continuous action space -- see
+│                                   # report.md §5.3)
+│   ├── evaluate.py                 # evaluates our model on this map image
+│   └── simulate.py                 # animated replay
+├── f1tenth_racetrack_on_beadenv/
+│   ├── hockenheim.png / montreal.png / yasmarina.png
+│                                   # F1TENTH racetrack outlines (from
+│                                   # github.com/f1tenth/f1tenth_racetracks,
+│                                   # the exact dataset used by Elgouhary &
+│                                   # El-Wakeel, arXiv:2602.18386) -- single
+│                                   # continuous closed loops, used as
+│                                   # TARGET IMAGES for our own BeadEnv, NOT
+│                                   # running our model inside F1TENTH Gym
+│                                   # (impossible -- see report.md §5.4)
+│   ├── evaluate.py                 # evaluates our model on all 3 tracks
+│   └── simulate.py                 # animated replay (--track hockenheim/
+│                                   # montreal/yasmarina)
 ├── baseline_rlcpp_external/
+│   ├── parse_official_eval.py      # parses mowing_tv1 eval CSVs into our schema
+│   ├── render_exploration_episode.py  # renders ONE episode of the official
+│                                   # "exploration" checkpoint (SAC, not
+│                                   # PPO) to a GIF via the environment's
+│                                   # own rgb_array renderer
+│   ├── render_mowing_episode.py    # same idea, for the official "mowing"
+│                                   # checkpoints (also SAC, despite the
+│                                   # paper describing PPO -- see the
+│                                   # script's docstring), forced onto ONE
+│                                   # specific named eval map via
+│                                   # env.eval_maps = [that map] before reset()
 │   └── official_code/              # Cloned official repo (arvijj/rl-cpp),
 │                                   # run in its own isolated conda env
 │                                   # (rlcpp_baseline, Python 3.9) because it
@@ -127,6 +170,16 @@ cd benchmark\baseline_rlcpp_external\official_code
 python eval.py --load weights\weights\mowing_tv1 --no-render --verbose --metrics_dir metrics_mowing_tv1 --steps 5000
 cd ..\..\..
 python benchmark\baseline_rlcpp_external\parse_official_eval.py
+
+# Render one episode of the OFFICIAL "exploration" checkpoint (note: this
+# checkpoint uses SAC, not PPO -- see the script's own docstring) to a GIF,
+# using their own environment's built-in renderer:
+cd benchmark\baseline_rlcpp_external\official_code
+python ..\render_exploration_episode.py --steps 3000 --out ..\..\results\ppo_jonnarth_exploration_official.gif
+
+# Same, for the official "mowing" checkpoint, forced onto one specific eval map:
+python ..\render_mowing_episode.py --map maps\eval_mowing_7.png --steps 3000 --out ..\..\results\ppo_jonnarth_mowing_eval_mowing_7.gif
+python ..\render_mowing_episode.py --map maps\eval_mowing_10.png --steps 3000 --out ..\..\results\ppo_jonnarth_mowing_eval_mowing_10.gif
 
 # Once all/any of the above have run, generate the comparison table + plots:
 .venv\Scripts\python.exe benchmark\generate_comparison.py

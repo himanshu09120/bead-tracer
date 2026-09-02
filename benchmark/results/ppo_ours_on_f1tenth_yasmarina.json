@@ -1,0 +1,452 @@
+{
+  "meta": {
+    "method": "ppo_ours_on_f1tenth_yasmarina",
+    "purpose": "EXPLORATORY cross-domain generalization test, not one of this benchmark's formal paper baselines. Answers 'how does our contour-tracing agent handle a real racetrack shape from Elgouhary & El-Wakeel's dataset', NOT 'our model ran inside F1TENTH Gym or tunes Pure Pursuit' (not possible -- see this script's module docstring: action space is controller parameters (L_d, g) vs. our raw thrust vector, observation is scalar curvature features vs. our image+state).",
+    "paper": "Elgouhary & El-Wakeel (2026), 'Learning to Tune Pure Pursuit in Autonomous Racing: Joint Lookahead and Steering-Gain Control with PPO', arXiv:2602.18386",
+    "source_image": "yasmarina_map.png from the f1tenth_racetracks dataset (github.com/f1tenth/f1tenth_racetracks) this exact paper trains/evaluates on -- a single continuous closed racing-line loop, structurally similar to our own target_images/path1-3.png",
+    "model_path": "E:\\bead tracer\\models\\bead_ppo_final.zip",
+    "environment": "BeadEnv (this project's own, unmodified environment) -- the racetrack image used only as a contour-extraction source, not F1TENTH Gym",
+    "n_points": 20,
+    "device": "cuda",
+    "completion_frac": 0.95
+  },
+  "summary": {
+    "n_episodes": 20,
+    "mean_coverage_pct": 30.358220211161388,
+    "std_coverage_pct": 13.105160429471429,
+    "min_coverage_pct": 8.166343460461107,
+    "max_coverage_pct": 59.857789269553976,
+    "success_rate": 0.0,
+    "n_success": 0,
+    "mean_path_length": 1180.0318862246297,
+    "std_path_length": 541.236749210553,
+    "mean_steps": 975.9,
+    "std_steps": 314.1680919507899,
+    "mean_redundancy_rate": 0.5281121272171999,
+    "std_redundancy_rate": 0.09231076822904623,
+    "mean_reward": 142.0059152898679,
+    "std_reward": 71.84376998384246
+  },
+  "episodes": [
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 0,
+      "seed": null,
+      "start_point": [
+        405,
+        40
+      ],
+      "coverage_pct": 34.60461107519931,
+      "success": false,
+      "path_length": 1261.9726209185267,
+      "steps": 911,
+      "redundancy_rate": 0.41712403951701427,
+      "reward": 168.27668663954591,
+      "extra": {
+        "covered_pixels": 3212,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 1,
+      "seed": null,
+      "start_point": [
+        401,
+        105
+      ],
+      "coverage_pct": 34.73389355742297,
+      "success": false,
+      "path_length": 1307.492496615523,
+      "steps": 1055,
+      "redundancy_rate": 0.45213270142180095,
+      "reward": 171.32126070881384,
+      "extra": {
+        "covered_pixels": 3224,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 2,
+      "seed": null,
+      "start_point": [
+        421,
+        163
+      ],
+      "coverage_pct": 34.83085541909071,
+      "success": false,
+      "path_length": 1308.7675261235731,
+      "steps": 995,
+      "redundancy_rate": 0.4552763819095478,
+      "reward": 168.0318707812028,
+      "extra": {
+        "covered_pixels": 3233,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 3,
+      "seed": null,
+      "start_point": [
+        421,
+        224
+      ],
+      "coverage_pct": 8.166343460461107,
+      "success": false,
+      "path_length": 341.1395065754503,
+      "steps": 537,
+      "redundancy_rate": 0.6629422718808193,
+      "reward": 35.1792433528447,
+      "extra": {
+        "covered_pixels": 758,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 4,
+      "seed": null,
+      "start_point": [
+        310,
+        285
+      ],
+      "coverage_pct": 9.642318465847879,
+      "success": false,
+      "path_length": 366.066807121395,
+      "steps": 616,
+      "redundancy_rate": 0.689935064935065,
+      "reward": 34.63290321799207,
+      "extra": {
+        "covered_pixels": 895,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 5,
+      "seed": null,
+      "start_point": [
+        493,
+        322
+      ],
+      "coverage_pct": 9.663865546218489,
+      "success": false,
+      "path_length": 426.46534442232326,
+      "steps": 533,
+      "redundancy_rate": 0.7129455909943715,
+      "reward": 33.92353853674154,
+      "extra": {
+        "covered_pixels": 897,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 6,
+      "seed": null,
+      "start_point": [
+        293,
+        377
+      ],
+      "coverage_pct": 35.649644473173886,
+      "success": false,
+      "path_length": 1568.4263208830905,
+      "steps": 1297,
+      "redundancy_rate": 0.5073245952197378,
+      "reward": 174.72053758298338,
+      "extra": {
+        "covered_pixels": 3309,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 7,
+      "seed": null,
+      "start_point": [
+        437,
+        427
+      ],
+      "coverage_pct": 38.881706528765356,
+      "success": false,
+      "path_length": 1499.0308206207299,
+      "steps": 1175,
+      "redundancy_rate": 0.47489361702127664,
+      "reward": 191.09044294608375,
+      "extra": {
+        "covered_pixels": 3609,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 8,
+      "seed": null,
+      "start_point": [
+        416,
+        442
+      ],
+      "coverage_pct": 37.26567550096962,
+      "success": false,
+      "path_length": 1556.0924175917924,
+      "steps": 1183,
+      "redundancy_rate": 0.39644970414201186,
+      "reward": 200.28414522695581,
+      "extra": {
+        "covered_pixels": 3459,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 9,
+      "seed": null,
+      "start_point": [
+        283,
+        465
+      ],
+      "coverage_pct": 37.55656108597285,
+      "success": false,
+      "path_length": 1424.0287679723524,
+      "steps": 1214,
+      "redundancy_rate": 0.5362438220757826,
+      "reward": 168.22699635257277,
+      "extra": {
+        "covered_pixels": 3486,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 10,
+      "seed": null,
+      "start_point": [
+        315,
+        507
+      ],
+      "coverage_pct": 17.129928894634777,
+      "success": false,
+      "path_length": 679.5068265868739,
+      "steps": 793,
+      "redundancy_rate": 0.6027742749054225,
+      "reward": 72.06516701797857,
+      "extra": {
+        "covered_pixels": 1590,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 11,
+      "seed": null,
+      "start_point": [
+        327,
+        531
+      ],
+      "coverage_pct": 59.857789269553976,
+      "success": false,
+      "path_length": 2432.0005226090057,
+      "steps": 1735,
+      "redundancy_rate": 0.446685878962536,
+      "reward": 297.6821140941142,
+      "extra": {
+        "covered_pixels": 5556,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 12,
+      "seed": null,
+      "start_point": [
+        297,
+        556
+      ],
+      "coverage_pct": 52.16548157724629,
+      "success": false,
+      "path_length": 2177.1636147725517,
+      "steps": 1513,
+      "redundancy_rate": 0.39656311962987445,
+      "reward": 273.853544599022,
+      "extra": {
+        "covered_pixels": 4842,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 13,
+      "seed": null,
+      "start_point": [
+        403,
+        589
+      ],
+      "coverage_pct": 42.5123895712131,
+      "success": false,
+      "path_length": 1659.060845294016,
+      "steps": 1251,
+      "redundancy_rate": 0.4532374100719424,
+      "reward": 207.27020478275074,
+      "extra": {
+        "covered_pixels": 3946,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 14,
+      "seed": null,
+      "start_point": [
+        394,
+        626
+      ],
+      "coverage_pct": 21.073044602456367,
+      "success": false,
+      "path_length": 843.8001160157148,
+      "steps": 756,
+      "redundancy_rate": 0.5687830687830688,
+      "reward": 89.12373854049679,
+      "extra": {
+        "covered_pixels": 1956,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 15,
+      "seed": null,
+      "start_point": [
+        565,
+        653
+      ],
+      "coverage_pct": 25.694893341952163,
+      "success": false,
+      "path_length": 925.2448969254301,
+      "steps": 795,
+      "redundancy_rate": 0.6251572327044026,
+      "reward": 96.75252224473518,
+      "extra": {
+        "covered_pixels": 2385,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 16,
+      "seed": null,
+      "start_point": [
+        553,
+        666
+      ],
+      "coverage_pct": 27.39711269123034,
+      "success": false,
+      "path_length": 974.3180743824973,
+      "steps": 847,
+      "redundancy_rate": 0.5419126328217237,
+      "reward": 117.88909166046041,
+      "extra": {
+        "covered_pixels": 2543,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 17,
+      "seed": null,
+      "start_point": [
+        577,
+        685
+      ],
+      "coverage_pct": 28.39905192846369,
+      "success": false,
+      "path_length": 1030.2538948478207,
+      "steps": 798,
+      "redundancy_rate": 0.518796992481203,
+      "reward": 122.96745313992714,
+      "extra": {
+        "covered_pixels": 2636,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 18,
+      "seed": null,
+      "start_point": [
+        475,
+        716
+      ],
+      "coverage_pct": 25.770308123249297,
+      "success": false,
+      "path_length": 885.9008210086741,
+      "steps": 715,
+      "redundancy_rate": 0.5398601398601399,
+      "reward": 107.38517361069476,
+      "extra": {
+        "covered_pixels": 2392,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    },
+    {
+      "method": "ppo_ours_on_f1tenth_yasmarina",
+      "episode_index": 19,
+      "seed": null,
+      "start_point": [
+        543,
+        750
+      ],
+      "coverage_pct": 26.168929110105584,
+      "success": false,
+      "path_length": 933.9054832052535,
+      "steps": 799,
+      "redundancy_rate": 0.5632040050062579,
+      "reward": 109.44167076144143,
+      "extra": {
+        "covered_pixels": 2429,
+        "total_contour_pixels": 9282,
+        "terminated": false,
+        "truncated": true
+      }
+    }
+  ]
+}
