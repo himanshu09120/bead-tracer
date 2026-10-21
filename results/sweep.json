@@ -1,0 +1,188 @@
+{
+ "greedy": {
+  "val_path1": {
+   "3": {
+    "coverage_mean": 95.02632644795463,
+    "coverage_sd": 0.014881468668186982,
+    "n_complete": 20,
+    "ret_mean": 619.6566773613433,
+    "steps_mean": 1471.95,
+    "speed_mean": 2.4990921689571013
+   },
+   "4": {
+    "coverage_mean": 95.03543944916971,
+    "coverage_sd": 0.01470822098656942,
+    "n_complete": 20,
+    "ret_mean": 595.5386272563644,
+    "steps_mean": 1627.6,
+    "speed_mean": 3.4448875969282233
+   },
+   "5": {
+    "coverage_mean": 95.05265289590926,
+    "coverage_sd": 0.026481767579228245,
+    "n_complete": 20,
+    "ret_mean": 576.9670350435246,
+    "steps_mean": 1806.65,
+    "speed_mean": 3.8528533810497363
+   },
+   "6": {
+    "coverage_mean": 92.26407452409882,
+    "coverage_sd": 3.255457091260316,
+    "n_complete": 8,
+    "ret_mean": 499.73345615743494,
+    "steps_mean": 2440.35,
+    "speed_mean": 3.7134749786457206
+   },
+   "8": {
+    "coverage_mean": 73.14702308626975,
+    "coverage_sd": 4.276726473016171,
+    "n_complete": 0,
+    "ret_mean": 348.0577259656656,
+    "steps_mean": 2500.0,
+    "speed_mean": 3.6512684636230275
+   },
+   "10": {
+    "coverage_mean": 63.113608748481155,
+    "coverage_sd": 6.029234695055901,
+    "n_complete": 0,
+    "ret_mean": 292.1665485871533,
+    "steps_mean": 2500.0,
+    "speed_mean": 3.71345071142021
+   },
+   "12": {
+    "coverage_mean": 59.57573916565411,
+    "coverage_sd": 4.264618560148627,
+    "n_complete": 0,
+    "ret_mean": 265.52116767449235,
+    "steps_mean": 2500.0,
+    "speed_mean": 3.870927002863971
+   }
+  },
+  "selected_speed": 5,
+  "fallback_used": false
+ },
+ "pure_pursuit": {
+  "val_path1": {
+   "3": {
+    "coverage_mean": 94.7043337383556,
+    "coverage_sd": 1.0104981119447558,
+    "n_complete": 18,
+    "ret_mean": 680.8352011641745,
+    "steps_mean": 2106.3,
+    "speed_mean": 2.858721345855037
+   },
+   "4": {
+    "coverage_mean": 95.04252733900363,
+    "coverage_sd": 0.030444099591686206,
+    "n_complete": 20,
+    "ret_mean": 600.3730512219947,
+    "steps_mean": 1633.45,
+    "speed_mean": 3.7479376723025766
+   },
+   "5": {
+    "coverage_mean": 95.05265289590928,
+    "coverage_sd": 0.02871090902948402,
+    "n_complete": 20,
+    "ret_mean": 569.5895454710278,
+    "steps_mean": 1751.3,
+    "speed_mean": 3.992132803836166
+   },
+   "6": {
+    "coverage_mean": 92.44734710409072,
+    "coverage_sd": 2.498157527780034,
+    "n_complete": 5,
+    "ret_mean": 474.0774997197965,
+    "steps_mean": 2488.55,
+    "speed_mean": 3.632677386524621
+   },
+   "8": {
+    "coverage_mean": 70.82118266504659,
+    "coverage_sd": 2.5278977541653656,
+    "n_complete": 0,
+    "ret_mean": 310.3488213254214,
+    "steps_mean": 2500.0,
+    "speed_mean": 3.6763065474033736
+   },
+   "10": {
+    "coverage_mean": 56.85095180234913,
+    "coverage_sd": 5.408549326231207,
+    "n_complete": 0,
+    "ret_mean": 226.50689746252965,
+    "steps_mean": 2500.0,
+    "speed_mean": 4.145707200513637
+   },
+   "12": {
+    "coverage_mean": 52.27521263669502,
+    "coverage_sd": 6.915336618355431,
+    "n_complete": 0,
+    "ret_mean": 186.09483036167813,
+    "steps_mean": 2500.0,
+    "speed_mean": 4.6634421819184615
+   }
+  },
+  "selected_speed": 5,
+  "fallback_used": false
+ },
+ "crop_greedy": {
+  "val_path1": {
+   "3": {
+    "coverage_mean": 95.05569056298097,
+    "coverage_sd": 0.026616928772976854,
+    "n_complete": 20,
+    "ret_mean": 593.5676081791905,
+    "steps_mean": 1136.05,
+    "speed_mean": 2.7198168262597604
+   },
+   "4": {
+    "coverage_mean": 92.18307006885378,
+    "coverage_sd": 8.438097474306867,
+    "n_complete": 15,
+    "ret_mean": 519.1799389864117,
+    "steps_mean": 1160.0,
+    "speed_mean": 3.280945640114544
+   },
+   "5": {
+    "coverage_mean": 88.78594572701498,
+    "coverage_sd": 6.435904252232972,
+    "n_complete": 4,
+    "ret_mean": 392.84315518159264,
+    "steps_mean": 2096.35,
+    "speed_mean": 3.8952987857986114
+   },
+   "6": {
+    "coverage_mean": 82.53341433778857,
+    "coverage_sd": 8.295659350437257,
+    "n_complete": 0,
+    "ret_mean": 328.87969944206634,
+    "steps_mean": 2448.55,
+    "speed_mean": 4.298997218748541
+   },
+   "8": {
+    "coverage_mean": 63.76265694613204,
+    "coverage_sd": 8.452972099354158,
+    "n_complete": 0,
+    "ret_mean": 223.72260790305094,
+    "steps_mean": 2500.0,
+    "speed_mean": 5.004396599245694
+   },
+   "10": {
+    "coverage_mean": 48.64317537464561,
+    "coverage_sd": 6.178431957069358,
+    "n_complete": 0,
+    "ret_mean": 93.92619380728856,
+    "steps_mean": 2500.0,
+    "speed_mean": 6.713037736720975
+   },
+   "12": {
+    "coverage_mean": 47.5303766707169,
+    "coverage_sd": 7.458112887669428,
+    "n_complete": 0,
+    "ret_mean": 57.00295567863249,
+    "steps_mean": 2500.0,
+    "speed_mean": 8.800799511346778
+   }
+  },
+  "selected_speed": 3,
+  "fallback_used": false
+ }
+}

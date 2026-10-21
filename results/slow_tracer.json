@@ -1,0 +1,79 @@
+{
+ "2": {
+  "ret": 856.0246036655251,
+  "coverage": 94.52207371405426,
+  "steps": 3249.5,
+  "complete": 0.9,
+  "cov_reward": 376.5249088699878,
+  "continuity": 402.86321428569806,
+  "completion_bonus": 90.0,
+  "n_complete": 9,
+  "n": 10
+ },
+ "3": {
+  "ret": 692.569001998265,
+  "coverage": 95.03847711624138,
+  "steps": 2087.0,
+  "complete": 1.0,
+  "cov_reward": 378.5905224787363,
+  "continuity": 229.79851785714413,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ },
+ "4": {
+  "ret": 601.0713696443609,
+  "coverage": 95.04455245038477,
+  "steps": 1615.8,
+  "complete": 1.0,
+  "cov_reward": 378.6148238153099,
+  "continuity": 140.93247781385338,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ },
+ "6": {
+  "ret": 563.9552852398892,
+  "coverage": 95.05062778452815,
+  "steps": 2622.1,
+  "complete": 1.0,
+  "cov_reward": 378.6391251518834,
+  "continuity": 99.85678075162784,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ },
+ "8": {
+  "ret": 519.149305378597,
+  "coverage": 95.1012555690563,
+  "steps": 3952.9,
+  "complete": 1.0,
+  "cov_reward": 378.84163628999596,
+  "continuity": 74.74305188825649,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ },
+ "10": {
+  "ret": 468.5901396033273,
+  "coverage": 95.05670311867152,
+  "steps": 4678.2,
+  "complete": 1.0,
+  "cov_reward": 378.6634264884568,
+  "continuity": 60.30472963647384,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ },
+ "12": {
+  "ret": 415.6684979053035,
+  "coverage": 95.15188335358445,
+  "steps": 5090.2,
+  "complete": 1.0,
+  "cov_reward": 379.04414742810854,
+  "continuity": 52.99907645282436,
+  "completion_bonus": 100.0,
+  "n_complete": 10,
+  "n": 10
+ }
+}
