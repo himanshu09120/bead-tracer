@@ -55,7 +55,7 @@ def agg(results, key):
 def fmt(a, d=1):
     if a["n"] < 2:
         return f"{a['mean']:.{d}f}"
-    return f"{a['mean']:.{d}f} $\pm$ {a['sd']:.{d}f} [{a['lo']:.{d}f}, {a['hi']:.{d}f}]"
+    return f"{a['mean']:.{d}f} $\\pm$ {a['sd']:.{d}f} [{a['lo']:.{d}f}, {a['hi']:.{d}f}]"
 
 
 def write(name, text):

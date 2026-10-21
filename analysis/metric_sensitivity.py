@@ -51,7 +51,7 @@ def main(target="path1"):
     order = {i: sorted(res, key=lambda k: -res[k][i]) for i in range(len(RHOS))}
     base = order[RHOS.index(8)]
     L = [r"\begin{tabular}{l" + "r" * len(RHOS) + "}", r"\toprule",
-         "Method & " + " & ".join(f"$\rho$={r}" for r in RHOS) + r" \\", r"\midrule"]
+         "Method & " + " & ".join(f"$\\rho$={r}" for r in RHOS) + r" \\", r"\midrule"]
     for k in base:
         L.append(k.replace("_", r"\_").replace("|", " ") + " & " + " & ".join(
             f"{res[k][i]:.1f} ({order[i].index(k) + 1})" for i in range(len(RHOS))) + r" \\")

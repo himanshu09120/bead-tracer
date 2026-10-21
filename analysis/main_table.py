@@ -49,7 +49,7 @@ def main():
                 comp = sum(sum(s["n_complete"] for s in v) for v in per_seed.values())
                 lo, hi = boot_ci(cov)
                 sd = np.std(cov, ddof=1) if len(cov) > 1 else float("nan")
-                L.append(f"PPO {tier} ({label}) & {len(cov)} & {np.mean(cov):.1f} $\pm$ {sd:.1f} [{lo:.1f}, {hi:.1f}] "
+                L.append(f"PPO {tier} ({label}) & {len(cov)} & {np.mean(cov):.1f} $\\pm$ {sd:.1f} [{lo:.1f}, {hi:.1f}] "
                          f"& {comp}/{len(per_seed) * 200} \\\\")
     L += [r"\bottomrule", r"\end{tabular}"]
     print("wrote", write("main_heldout.tex", "\n".join(L)))
