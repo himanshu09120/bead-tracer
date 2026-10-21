@@ -160,8 +160,25 @@ class BeadEnv(gym.Env):
         revisit_cell_px: float = 16.0,
         revisit_window: int = 60,
         revisit_pen: float = 0.05,
+        # -- observation tier (paper ablations; "full" is the original) ----------
+        # "full"               : unchanged observation.
+        # "no_direction"       : state[4:7] (unit direction to nearest uncovered
+        #                        pixel u-hat, and its normalised distance u_t) held at 0.
+        # "no_direction_noisy" : no_direction + Gaussian noise on the observed
+        #                        position (state[0:2]) and velocity (state[2:4]).
+        # "no_visual"          : full numerical state, local_map all zeros.
+        # Shapes are identical in every mode.  Noise touches observations only,
+        # never dynamics, reward or coverage.
+        obs_mode: str = "full",
+        obs_pos_sigma: float = 0.05,    # world units (arena is +-10)
+        obs_vel_sigma_frac: float = 0.05,  # fraction of MAX_SPEED
     ):
         super().__init__()
+        if obs_mode not in ("full", "no_direction", "no_direction_noisy", "no_visual"):
+            raise ValueError(f"unknown obs_mode {obs_mode!r}")
+        self.obs_mode = obs_mode
+        self._obs_pos_sigma = float(obs_pos_sigma)
+        self._obs_vel_sigma_frac = float(obs_vel_sigma_frac)
 
         # -- Physics constants (unchanged) -------------------------------------
         self.ARENA      = 10.0
@@ -752,6 +769,16 @@ class BeadEnv(gym.Env):
             float(self._prev_action[0]),
             float(self._prev_action[1]),
         ], dtype=np.float32)
+
+        if self.obs_mode != "full":
+            if self.obs_mode in ("no_direction", "no_direction_noisy"):
+                state[4:7] = 0.0
+            if self.obs_mode == "no_direction_noisy":
+                n = self.np_random.normal(size=4)
+                state[0:2] = np.clip(state[0:2] + n[0:2] * self._obs_pos_sigma / self.ARENA, -1.0, 1.0)
+                state[2:4] = np.clip(state[2:4] + n[2:4] * self._obs_vel_sigma_frac, -1.0, 1.0)
+            if self.obs_mode == "no_visual":
+                crop = np.zeros_like(crop)
 
         return {"local_map": crop, "state": state}
 

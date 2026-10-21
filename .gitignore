@@ -16,3 +16,6 @@ tensorboard/*
 
 # Local tooling state (not project content)
 .claude/
+
+# Training runs (large; regenerate with run_queue.sh)
+runs/
