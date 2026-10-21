@@ -32,7 +32,7 @@ python -m pytest tests -m "not slow"          # fast checks (obs_mode bit-identi
 python -m pytest tests -m slow                # reproducibility vs. verified numbers (~10 min)
 
 # training (writes only to runs/<name>/; skips finished runs, resumes interrupted ones)
-./run_queue.sh 2                              # 15 runs, 2 in parallel (RAM-limited on the 16 GB laptop)
+./run_queue.sh 4                              # 15 runs, 4 in parallel (workers are torch-free via light_env.py)
 python run_experiment.py --obs-mode full --seed 1
 
 # evaluation (final + validation-selected checkpoint, path1-3 + 10 held-out shapes)

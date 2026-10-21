@@ -4,20 +4,19 @@ run_experiment.py -- resumable PPO training for one (obs_mode, seed, phi).
 Writes ONLY to runs/<name>/ (never models/ or checkpoints/):
     runs/<name>/checkpoints/bead_ppo_<k>_steps.zip   every 50k steps
     runs/<name>/final.zip                            after the last full rollout (1,003,520 steps)
-    runs/<name>/monitor/                             SB3 Monitor csv
-Hyperparameters and env kwargs come from config.py unchanged.
+    Hyperparameters and env kwargs come from config.py unchanged.
 Re-running skips a finished run and resumes an interrupted one from its latest checkpoint.
 
     python run_experiment.py --obs-mode no_direction --seed 1
 """
 import argparse, glob, json, os, re, time
 
-import torch
-from stable_baselines3 import PPO
+# Heavy imports (torch, SB3, config) live inside main(): on Windows every SubprocVecEnv worker re-imports this
+# module, and must not pay ~470 MB for torch.  Workers build envs through light_env.EnvFn.
+from light_env import EnvFn
 
-import config, train
-
-ROOT = os.path.join(config.PROJECT_ROOT, "runs")
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(PROJECT_ROOT, "runs")
 
 
 def run_name(obs_mode, seed, phi):
@@ -34,6 +33,12 @@ def latest_checkpoint(ckpt_dir):
 
 
 def main():
+    import torch
+    from stable_baselines3 import PPO
+    from stable_baselines3.common.vec_env import DummyVecEnv
+    from light_vec import LightSubprocVecEnv
+    import config, train
+
     p = argparse.ArgumentParser()
     p.add_argument("--obs-mode", default="full")
     p.add_argument("--seed", type=int, default=42)
@@ -59,7 +64,8 @@ def main():
     json.dump(dict(vars(a), env_kwargs=env_kwargs, ppo_kwargs={k: str(v) for k, v in config.PPO_KWARGS.items()}),
               open(os.path.join(d, "run.json"), "w"), indent=1)
 
-    vec = train.build_vec_env(a.image, a.n_envs, a.seed, os.path.join(d, "monitor"), env_kwargs, True)
+    fns = [EnvFn(a.image, a.seed, rank, env_kwargs) for rank in range(a.n_envs)]
+    vec = (LightSubprocVecEnv if a.n_envs > 1 else DummyVecEnv)(fns)
     resume = latest_checkpoint(ck)
     if resume:
         print(f"[resume] {name} from {resume}")
