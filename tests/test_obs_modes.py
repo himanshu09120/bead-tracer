@@ -25,4 +25,4 @@ def test_modes_shapes_and_masking():
         if m != "no_visual":
             assert (o["state"][4:7] == 0).all()
         else:
-            assert (o["local_map"] == 0).all() and o["state"][4:7].any() or True
+            assert (o["local_map"] == 0).all()
