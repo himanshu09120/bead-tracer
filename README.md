@@ -1,3 +1,54 @@
+# Paper reproduction guide
+
+This section documents the evaluation/experiment tooling added for the paper. The environment dynamics, reward and
+the existing models/checkpoints are unchanged (`obs_mode="full"` is bit-identical; see `tests/test_obs_modes.py`).
+
+## Target images (provenance)
+`target_images/path1.png` (512x512, closed star-like loop, ~5 px stroke) and `path2.png`, `path3.png`
+(1536x960 RGBA open freehand curves, 2-colour) were **drawn by hand by the author**; there is no generator that
+reproduces them, so the PNGs are the reference. `BeadEnv` resizes every target to 800x800 without preserving aspect
+ratio (path2/3 are therefore squeezed horizontally).
+Procedural shapes (`shapes/generate.py`, radial Fourier series; parameters in its docstring): `shapes/train/` (100
+shapes, seeds 1000-1099) and `shapes/heldout/` (10 shapes, seeds 9000-9009). They imitate path1's style (they are
+smoother than path1) and are deterministic: `python -m shapes.generate`.
+
+## Protocol
+* Test starts: `env.eval_start_points(20)`. Validation starts: 19 pixels halfway between consecutive test starts +
+  one quarter-gap point (`evaluation/core.py`). Model selection uses validation starts of path1 only (earliest
+  checkpoint wins ties); "final" = the model saved after the last full rollout (1,003,520 steps).
+* All numbers: CPU, 1 torch thread, deterministic policy, `phi = completion_frac = 0.95`. **Rollouts are chaotic**:
+  the same model gives path1 coverage 86.03 (CPU, 1 thread), 85.99 (CPU, default threads) or 82.03 (CUDA) for
+  `models/bead_ppo_final.zip`. Always report the setting. The author's original numbers (86.18 on path1) are matched
+  to 0.05 on path2/path3 but only to ~0.15 on path1 (`tests/test_repro.py`).
+* Observation tiers (`obs_mode`): `full`; `no_direction` (state[4:7], the unit direction to the nearest uncovered pixel
+  and its normalised distance, are set to 0; shape unchanged); `no_direction_noisy` (+ Gaussian noise on position
+  state[0:2], sigma 0.05 world units, and velocity state[2:4], sigma 0.05*v_max; observations only);
+  `no_visual` (local_map all zeros). Shapes are identical in all modes.
+
+## Commands
+```bash
+pip install -r requirements.txt
+python -m pytest tests -m "not slow"          # fast checks (obs_mode bit-identity)
+python -m pytest tests -m slow                # reproducibility vs. verified numbers (~10 min)
+
+# training (writes only to runs/<name>/; skips finished runs, resumes interrupted ones)
+./run_queue.sh 2                              # 15 runs, 2 in parallel (RAM-limited on the 16 GB laptop)
+python run_experiment.py --obs-mode full --seed 1
+
+# evaluation (final + validation-selected checkpoint, path1-3 + 10 held-out shapes)
+python evaluate_run.py --run full_s42 --tier full --ckpt-test    # existing run in models/ + checkpoints/
+python evaluate_run.py --run no_direction_s1 --tier no_direction
+python -m baselines.run_baselines --targets path1 path2 path3 heldout00 heldout01 heldout02 heldout03 heldout04 heldout05 heldout06 heldout07 heldout08 heldout09
+
+# tables, figures, RESULTS.md from results/raw
+./run_all.sh                                  # SLOW=1 ./run_all.sh also re-runs the slow-tracer simulation
+```
+Raw results: `results/raw/<method>__<tier>__s<seed>__<target>__<split>.json` (per-start coverage, completion, return,
+steps, mean speed; trajectories and per-step speeds for path1 test). Tables: `results/tables/*.tex`; figures:
+`results/figures/`.
+
+---
+
 # Bead Curve Reconstruction — Reinforcement Learning
 
 Train a Stable-Baselines3 **PPO** agent to steer a physically simulated bead
