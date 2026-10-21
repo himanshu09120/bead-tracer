@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "bead-tracer: PPO agent tracing image contours with inertial bead dynamics"
+authors:
+  - alias: "himanshu09120"
+    email: "hsinha0912@gmail.com"
+    # TODO: replace alias with family-names / given-names before release
+repository-code: "https://github.com/himanshu09120/bead-tracer"   # TODO: confirm URL
+license: "LicenseRef-placeholder"   # TODO: set after choosing a license in LICENSE
+version: "0.1.0"
+date-released: "2026-10-21"

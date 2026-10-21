@@ -89,9 +89,10 @@ class GreedyPolicy(_Base):
 
 class PurePursuitPolicy(_Base):
     """Pure pursuit on the ordered contour polylines (same Canny/findContours pipeline as BeadEnv).
-    Pick the nearest polyline that is < 90% covered, jump to its nearest vertex, chase the vertex `lookahead`
+    Pick the nearest polyline that is < 90% covered, jump to its nearest uncovered vertex, chase the vertex `lookahead`
     ahead (advancing as the bead gets within `tol` px); re-pick when the polyline reaches 90% covered or the
-    whole loop has been traversed.  Nothing left to pick -> zero thrust."""
+    whole loop has been traversed.  Once every polyline is >= 90% covered the skip threshold is relaxed to 99%
+    (stage 2) so the remaining gaps get traced; with nothing left to pick -> zero thrust."""
 
     def __init__(self, speed=6.0, lookahead=3, tol=6.0, skip_frac=0.9):
         self.speed, self.la, self.tol, self.skip = float(speed), lookahead, tol, skip_frac
@@ -114,6 +115,7 @@ class PurePursuitPolicy(_Base):
         if self._env_id != id(env):
             self._prepare(env)
         self.cur, self.i, self.steps_on = None, 0, 0
+        self._skip = self.skip
 
     def _covfrac(self, env, k):
         ix = self.pidx[k]
@@ -122,24 +124,32 @@ class PurePursuitPolicy(_Base):
 
     def act(self, obs, env):
         fx, fy = env.get_pixel_pos_f()
-        if self.cur is not None and (self._covfrac(env, self.cur) >= self.skip
+        if self.cur is not None and (self._covfrac(env, self.cur) >= self._skip
                                      or self.steps_on >= len(self.polys[self.cur])):
             self.cur = None
         if self.cur is None:
             best, bd, bj = None, 1e18, 0
-            for k, P in enumerate(self.polys):
-                if self._covfrac(env, k) >= self.skip:
-                    continue
-                d = np.hypot(P[:, 0] - fx, P[:, 1] - fy)
-                j = int(d.argmin())
-                if d[j] < bd:
-                    best, bd, bj = k, d[j], j
+            for stage in (0, 1):
+                for k, P in enumerate(self.polys):
+                    if self._covfrac(env, k) >= self._skip:
+                        continue
+                    ix = self.pidx[k]
+                    unc = (ix < 0) | ~env._cov_mask[np.maximum(ix, 0)]   # enter at the nearest UNCOVERED vertex
+                    d = np.where(unc, np.hypot(P[:, 0] - fx, P[:, 1] - fy), 1e18)
+                    j = int(d.argmin())
+                    if d[j] < bd:
+                        best, bd, bj = k, d[j], j
+                if best is not None or stage:
+                    break
+                self._skip = 0.99
             if best is None:
                 return np.zeros(2, dtype=np.float32)
             self.cur, self.i, self.steps_on = best, bj, 0
         P = self.polys[self.cur]
         n = len(P)
-        while math.hypot(P[self.i][0] - fx, P[self.i][1] - fy) < self.tol and self.steps_on < n:
+        ix = self.pidx[self.cur]
+        while self.steps_on < n and (math.hypot(P[self.i][0] - fx, P[self.i][1] - fy) < self.tol
+                                     or (ix[self.i] >= 0 and env._cov_mask[ix[self.i]])):   # skip covered vertices
             self.i = (self.i + 1) % n
             self.steps_on += 1
         tx, ty = P[(self.i + self.la) % n]

@@ -1,16 +1,14 @@
-# Core RL stack
-gymnasium>=0.29,<1.2
-stable-baselines3>=2.3.0
-torch>=2.0
-
-# Environment dependencies (image processing / contour extraction)
-opencv-python-headless>=4.8
-numpy>=1.24
-
-# Logging / evaluation / reporting
-tensorboard>=2.13
-matplotlib>=3.7
-
-# Nice-to-haves used by SB3 (progress bars for model.learn(progress_bar=True))
-tqdm>=4.66
-rich>=13.0
+# Exact versions used for every result in results/ (Python 3.13.9, Windows 11).
+# torch was the CUDA 13.0 wheel (2.13.0+cu130); all evaluation numbers are CPU, 1 torch thread.
+# Rollouts are chaotic: other torch versions, thread counts or devices change per-episode coverage by several pp.
+gymnasium==1.1.1
+stable-baselines3==2.9.0
+torch==2.13.0
+opencv-python-headless==5.0.0.93
+numpy==2.5.2
+tensorboard==2.21.0
+matplotlib==3.11.1
+tqdm==4.70.0
+rich==15.0.0
+cloudpickle==3.1.2
+pytest==9.1.1

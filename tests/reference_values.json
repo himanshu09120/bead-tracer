@@ -1,0 +1,44 @@
+{
+ "final|path1": {
+  "coverage_mean": 86.03483191575538,
+  "coverage_sd": 11.424463352663466,
+  "n_complete": 0,
+  "ret_mean": 399.9040724550581,
+  "steps_mean": 1913.1
+ },
+ "final|path2": {
+  "coverage_mean": 56.58719704952582,
+  "coverage_sd": 22.860953383700227,
+  "n_complete": 0,
+  "ret_mean": 251.67772199647365,
+  "steps_mean": 1018.5
+ },
+ "final|path3": {
+  "coverage_mean": 50.453084832904885,
+  "coverage_sd": 27.061933691379235,
+  "n_complete": 1,
+  "ret_mean": 208.86083253568708,
+  "steps_mean": 836.1
+ },
+ "m163258|path1": {
+  "coverage_mean": 94.85824220332117,
+  "coverage_sd": 0.3307137715154947,
+  "n_complete": 13,
+  "ret_mean": 480.4213201925014,
+  "steps_mean": 802.9
+ },
+ "m163258|path2": {
+  "coverage_mean": 57.78055848261329,
+  "coverage_sd": 22.831296686647654,
+  "n_complete": 0,
+  "ret_mean": 247.31587460513447,
+  "steps_mean": 856.75
+ },
+ "m163258|path3": {
+  "coverage_mean": 63.78695372750643,
+  "coverage_sd": 22.87949888163741,
+  "n_complete": 0,
+  "ret_mean": 261.4848828735122,
+  "steps_mean": 748.4
+ }
+}
