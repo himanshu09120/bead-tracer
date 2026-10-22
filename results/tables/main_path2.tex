@@ -2,6 +2,14 @@
 \toprule
 Method & Seeds & Coverage (\%) & Complete & Return & Steps \\
 \midrule
+PPO full (final) & 5 & 49.9 $\pm$ 8.0 [43.8, 56.2] & 0/100 & 218.0 & 894 \\
+PPO no_direction (final) & 5 & 44.8 $\pm$ 7.1 [39.7, 50.9] & 0/100 & 203.7 & 860 \\
+PPO no_direction_noisy (final) & 3 & 40.6 $\pm$ 12.1 [27.7, 51.8] & 0/60 & 183.7 & 1012 \\
+PPO no_visual (final) & 3 & 91.8 $\pm$ 4.3 [87.0, 95.1] & 47/60 & 556.2 & 1809 \\
+PPO full (val-selected) & 5 & 52.5 $\pm$ 7.3 [46.8, 58.3] & 0/100 & 236.7 & 915 \\
+PPO no_direction (val-selected) & 5 & 51.7 $\pm$ 4.3 [48.7, 55.3] & 1/100 & 236.7 & 879 \\
+PPO no_direction_noisy (val-selected) & 3 & 46.5 $\pm$ 9.5 [38.3, 56.9] & 0/60 & 211.8 & 1058 \\
+PPO no_visual (val-selected) & 3 & 95.1 $\pm$ 0.0 [95.0, 95.1] & 60/60 & 592.2 & 1638 \\
 crop\_greedy\_v15 & 1 & 51.7 & 0/20 & -23.5 & 2498 \\
 crop\_greedy\_v3 & 1 & 64.6 & 4/20 & 297.5 & 1028 \\
 greedy\_v15 & 1 & 58.6 & 0/20 & 245.9 & 2500 \\
