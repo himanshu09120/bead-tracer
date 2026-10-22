@@ -19,11 +19,11 @@ os.chdir(ROOT)
 from evaluation import evaluate, PPOPolicy
 
 MODELS = {"final": "models/bead_ppo_final.zip", "m163258": "models/bead_ppo_20260819_163258_final.zip"}
-# (coverage_mean, n_complete) quoted by the author
+# (coverage_mean, n_complete) quoted by the author; completion counts were only quoted for path1
 VERIFIED = {
     "final|path1": (86.18, 0), "m163258|path1": (94.84, 12),
-    "final|path2": (56.6, 0), "final|path3": (50.5, 0),
-    "m163258|path2": (57.8, 0), "m163258|path3": (63.8, 0),
+    "final|path2": (56.6, None), "final|path3": (50.5, None),
+    "m163258|path2": (57.8, None), "m163258|path3": (63.8, None),
 }
 _cache = {}
 
@@ -55,4 +55,5 @@ def test_author_verified(key):
     s = result(key)
     tol = 0.05 if not key.endswith("path1") else 0.3
     assert s["coverage_mean"] == pytest.approx(cov, abs=tol)
-    assert abs(s["n_complete"] - comp) <= (0 if not key.endswith("path1") else 1)
+    if comp is not None:
+        assert abs(s["n_complete"] - comp) <= 1
