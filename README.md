@@ -12,6 +12,10 @@ Procedural shapes (`shapes/generate.py`, radial Fourier series; parameters in it
 shapes, seeds 1000-1099) and `shapes/heldout/` (10 shapes, seeds 9000-9009). They imitate path1's style (they are
 smoother than path1) and are deterministic: `python -m shapes.generate`.
 
+## Notes on existing models
+`models/bead_ppo_20260819_163258_final.zip` was trained with an unrecorded seed (the code default is 42, but this is unconfirmed) and has no checkpoints, so it appears only in the regression tests, not in the paper tables.
+No license has been chosen: `LICENSE` states all rights reserved.
+
 ## Protocol
 * Test starts: `env.eval_start_points(20)`. Validation starts: 19 pixels halfway between consecutive test starts +
   one quarter-gap point (`evaluation/core.py`). Model selection uses validation starts of path1 only (earliest

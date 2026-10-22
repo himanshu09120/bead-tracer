@@ -5,7 +5,6 @@ authors:
   - alias: "himanshu09120"
     email: "hsinha0912@gmail.com"
     # TODO: replace alias with family-names / given-names before release
-repository-code: "https://github.com/himanshu09120/bead-tracer"   # TODO: confirm URL
-license: "LicenseRef-placeholder"   # TODO: set after choosing a license in LICENSE
+repository-code: "https://github.com/himanshu09120/bead-tracer"
 version: "0.1.0"
 date-released: "2026-10-21"
