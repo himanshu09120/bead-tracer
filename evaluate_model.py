@@ -18,15 +18,17 @@ ap.add_argument("--label", required=True)
 ap.add_argument("--seed", required=True, help="training seed, or the literal 'unrecorded'")
 ap.add_argument("--eval-phi", type=float, default=0.95)
 ap.add_argument("--train-phi", type=float, default=None, help="metadata only")
+ap.add_argument("--algo", default="ppo", choices=["ppo", "sac", "td3"])
+ap.add_argument("--method", default=None, help="raw-file method name; default ppo_<label>")
 ap.add_argument("--targets", nargs="+", default=TARGETS)
 a = ap.parse_args()
 
 pol = None
 for t in a.targets:
-    method = f"ppo_{a.label}"
+    method = a.method or f"ppo_{a.label}"
     if os.path.exists(result_path(method, "full", a.seed, t, "test")):
         continue
-    pol = pol or PPOPolicy(a.model)
+    pol = pol or PPOPolicy(a.model, a.algo)
     r = evaluate(pol, t, "test", "full", a.eval_phi, keep_traj=(t == "path1"))
     save_result(r, method, "full", a.seed, model=os.path.relpath(a.model, config.PROJECT_ROOT), train_phi=a.train_phi)
     s = r["summary"]

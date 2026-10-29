@@ -1,0 +1,47 @@
+{
+ "algo": "td3",
+ "seed": 2,
+ "image": "E:\\bead tracer\\target_images\\path1.png",
+ "timesteps": 1000000,
+ "n_envs": 4,
+ "device": "cuda",
+ "threads": 2,
+ "gradient_steps": null,
+ "name": null,
+ "lr": null,
+ "noise_sigma": null,
+ "learning_starts": null,
+ "env_kwargs": {
+  "cover_radius_px": 8.0,
+  "completion_frac": 0.95,
+  "max_steps": 2500,
+  "stag_limit": 350,
+  "revisit_cell_px": 16.0,
+  "revisit_window": 60,
+  "revisit_pen": 0.05,
+  "obs_mode": "full"
+ },
+ "algo_kwargs": {
+  "learning_rate": 0.0001,
+  "buffer_size": 200000,
+  "learning_starts": 10000,
+  "batch_size": 256,
+  "tau": 0.005,
+  "gamma": 0.995,
+  "train_freq": 1,
+  "policy_delay": 2,
+  "target_policy_noise": 0.2,
+  "target_noise_clip": 0.5,
+  "gradient_steps": 1
+ },
+ "td3_action_noise_sigma": 0.3,
+ "policy_kwargs": {
+  "features_extractor_class": "<class 'config.BeadFeaturesExtractor'>",
+  "features_extractor_kwargs": "{'cnn_out': 128, 'mlp_out': 64, 'features_dim': 256}",
+  "net_arch": "{'pi': [128, 128], 'vf': [128, 128]}",
+  "activation_fn": "<class 'torch.nn.modules.activation.ReLU'>"
+ },
+ "versions": {
+  "torch": "2.13.0+cu130"
+ }
+}

@@ -64,11 +64,11 @@ def val_starts(env, n=20):
 # ---------------------------------------------------------------- policies
 class PPOPolicy:
     """Deterministic SB3 PPO, always on CPU (CPU and CUDA give different chaotic rollouts)."""
-    def __init__(self, path):
+    def __init__(self, path, algo="ppo"):
         import torch
-        from stable_baselines3 import PPO
+        import stable_baselines3 as sb3
         torch.set_num_threads(1)
-        self.path, self.model = path, PPO.load(path, device="cpu")
+        self.path, self.model = path, getattr(sb3, algo.upper()).load(path, device="cpu")
 
     def reset(self, env, i): pass
 
